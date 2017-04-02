@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+  <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+  <style type="text/css">
+    .borderless td, .borderless th {
+    border: none;
+  }
+  </style>
+
+  <title>js test by itsnotdevin</title>
+  <script type='text/javascript'>//<![CDATA[
+window.onload=function(){
+
+  $(document).keypress(function(event) {
+		if (event.which == 100) {
+    for (i = 0; i <= 3; i++)
+	     dealCard(i);
+	   }
+  });
+
+  $('#deal').click(function () {
+	 for (i = 0; i <= 3; i++)
+	     dealCard(i);
+  });
+
+var cardsInDeck = new Array();
+var numberOfCardsInDeck = 52;
+
+for (i = 0; i < 9; i++){
+	cardsInDeck[i] = ("c"+(i+2));
+  }
+  cardsInDeck[9] = "cj";
+  cardsInDeck[10] = "cq";
+  cardsInDeck[11] = "ck";
+  cardsInDeck[12] = "ca";
+
+for (i = 0; i < 9; i++){
+	cardsInDeck[i+13] = ("d"+(i+2));
+  }
+  cardsInDeck[22] = "dj";
+  cardsInDeck[23] = "dq";
+  cardsInDeck[24] = "dk";
+  cardsInDeck[25] = "da";
+
+for (i = 0; i < 9; i++){
+	cardsInDeck[i+26] = ("h"+(i+2));
+  }
+  cardsInDeck[35] = "hj";
+  cardsInDeck[36] = "hq";
+  cardsInDeck[37] = "hk";
+  cardsInDeck[38] = "ha";
+
+for (i = 0; i < 9; i++){
+	cardsInDeck[i+39] = ("s"+i(i+2));
+  }
+  cardsInDeck[48] = "sj";
+  cardsInDeck[49] = "sq";
+  cardsInDeck[50] = "sk";
+  cardsInDeck[51] = "sa";
+
+function dealCard(i) {
+  if (numberOfCardsInDeck == 44) return false;
+
+  var firstPlayerRow = document.getElementById("playerOne").rows[0];
+  var x = firstPlayerRow.insertCell(-1);
+  x.innerHTML="<th>";
+
+	var img = document.createElement("img");
+	i = randomCard(-1);
+
+  while (cardsInDeck[i] === undefined)
+  {
+    i = randomCard(-1);
+  }
+  
+  img.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".jpg";
+	x.appendChild(img);
+	removeCard(i);
+
+
+  var secondPlayerRow = document.getElementById("playerTwo").rows[0];
+  var y = secondPlayerRow.insertCell(-1);
+  y.innerHTML="<th>";
+
+  var img = document.createElement("img");
+	i = randomCard(-1);
+
+  while (cardsInDeck[i] === undefined)
+  {
+    i = randomCard(-1);
+  }
+
+  img.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".jpg";
+	y.appendChild(img);
+	removeCard(i);
+}
+
+function randomCard(d) {
+while (d > 52 || d < 0)
+{
+	d = Math.floor(Math.random() * numberOfCardsInDeck);
+}
+ 	return d;
+}
+
+function removeCard(c) {
+	for (j=c; j <= numberOfCardsInDeck-2; j++) {
+ 		cardsInDeck[j] = cardsInDeck[j+1];
+  }
+  numberOfCardsInDeck--;
+ }
+}//]]>
+</script>
+</head>
+<body>
+  <body>
+  <input type="button" value="Deal Cards to Start Game!" id='deal' />
+  <table class="table borderless" id="playerOne">
+    <thead>
+      <tr>
+        <th>Player ONE Cards Table:</th>
+      </tr>
+    </thead>
+  </table>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <table class="table borderless" id="playerTwo">
+   <thead>
+      <tr>
+        <th>Player TWO Cards Table:</th>
+      </tr>
+    </thead>
+  </table>
+ </body>
+  <script>
+  // tell the embed parent frame the height of the content
+  if (window.parent && window.parent.parent){
+    window.parent.parent.postMessage(["resultsFrame", {
+      height: document.body.getBoundingClientRect().height,
+      slug: "ny0nev5x"
+    }], "*")
+  }
+</script>
+</body>
+</html>
