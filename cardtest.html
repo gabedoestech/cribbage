@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="googlebot" content="noindex, nofollow">
-  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-  <link rel="stylesheet" type="text/css" href="/css/result-light.css">
-  <style type="text/css">
-    .borderless td, .borderless th {
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="robots" content="noindex, nofollow"><meta name="googlebot" content="noindex, nofollow"><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+	<link href="/css/result-light.css" rel="stylesheet" type="text/css" />
+	<style type="text/css">.borderless td, .borderless th {
     border: none;
   }
-  </style>
-
-  <title>js test by itsnotdevin</title>
-  <script type='text/javascript'>//<![CDATA[
+	</style>
+	<title>js test by itsnotdevin</title>
+	<script type='text/javascript'>//<![CDATA[
 window.onload=function(){
 
   $(document).keypress(function(event) {
@@ -27,6 +21,7 @@ window.onload=function(){
 	 for (i = 0; i <= 3; i++)
 	     dealCard(i);
   });
+
 
 var cardsInDeck = new Array();
 var numberOfCardsInDeck = 52;
@@ -56,7 +51,7 @@ for (i = 0; i < 9; i++){
   cardsInDeck[38] = "ha";
 
 for (i = 0; i < 9; i++){
-	cardsInDeck[i+39] = ("s"+i(i+2));
+	cardsInDeck[i+39] = ("s"+(i+2));
   }
   cardsInDeck[48] = "sj";
   cardsInDeck[49] = "sq";
@@ -67,37 +62,40 @@ function dealCard(i) {
   if (numberOfCardsInDeck == 44) return false;
 
   var firstPlayerRow = document.getElementById("playerOne").rows[0];
+  var secondPlayerRow = document.getElementById("playerTwo").rows[0];
+  var discardPileRow = document.getElementById("discardPile").rows[0];
+
   var x = firstPlayerRow.insertCell(-1);
+  var y = secondPlayerRow.insertCell(-1);
+  var z = discardPileRow.insertCell(-1);
+
   x.innerHTML="<th>";
+  y.innerHTML="<th>";
+  z.innerHTML="<th>";
 
 	var img = document.createElement("img");
 	i = randomCard(-1);
-
-  while (cardsInDeck[i] === undefined)
-  {
-    i = randomCard(-1);
-  }
-  
   img.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".jpg";
 	x.appendChild(img);
-	removeCard(i);
+  removeCard(i);
 
 
-  var secondPlayerRow = document.getElementById("playerTwo").rows[0];
-  var y = secondPlayerRow.insertCell(-1);
-  y.innerHTML="<th>";
+  $(x).click(function () {
+   $(x).detach().appendTo(z);
+
+  });
 
   var img = document.createElement("img");
 	i = randomCard(-1);
-
-  while (cardsInDeck[i] === undefined)
-  {
-    i = randomCard(-1);
-  }
-
   img.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".jpg";
 	y.appendChild(img);
 	removeCard(i);
+
+
+  $(y).click(function () {
+   $(y).detach().appendTo(z);
+  });
+
 }
 
 function randomCard(d) {
@@ -114,29 +112,42 @@ function removeCard(c) {
   }
   numberOfCardsInDeck--;
  }
+
 }//]]>
 </script>
 </head>
 <body>
-  <body>
-  <input type="button" value="Deal Cards to Start Game!" id='deal' />
-  <table class="table borderless" id="playerOne">
-    <thead>
-      <tr>
-        <th>Player ONE Cards Table:</th>
-      </tr>
-    </thead>
-  </table>
-  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  <table class="table borderless" id="playerTwo">
-   <thead>
-      <tr>
-        <th>Player TWO Cards Table:</th>
-      </tr>
-    </thead>
-  </table>
- </body>
-  <script>
+<p>&nbsp;
+<p><input id="deal" type="button" value="Deal Cards to Start Game!" /></p>
+</p>
+
+<table class="table borderless" id="playerOne">
+	<thead>
+		<tr>
+			<th>Player ONE Cards Table:</th>
+		</tr>
+	</thead>
+</table>
+
+<br><br><br><br><br>
+<table class="table borderless" id="discardPile">
+  <thead>
+    <tr>
+      <th>Discard Pile:</th>
+    </tr>
+  </thead>
+</table>
+<br><br><br><br><br>
+<table class="table borderless" id="playerTwo">
+	<thead>
+		<tr>
+			<th>Player TWO Cards Table:</th>
+		</tr>
+	</thead>
+</table>
+
+</body>
+<script>
   // tell the embed parent frame the height of the content
   if (window.parent && window.parent.parent){
     window.parent.parent.postMessage(["resultsFrame", {
@@ -145,5 +156,4 @@ function removeCard(c) {
     }], "*")
   }
 </script>
-</body>
 </html>
