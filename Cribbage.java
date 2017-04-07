@@ -24,6 +24,42 @@ class Card
 
 public class Cribbage
 {
+	// Check to see how many combinations in player's hand add up to 15 (recursion)
+	public static int endTotal15(ArrayList<Card> played, int total, int i)
+	{
+		if (total == 15)
+		{	
+			System.out.println("15");
+			return 2;
+		}	
+		
+		if (i == played.size())
+			return 0;
+		
+		if (total + played.get(i).value < 16)
+			return endTotal15(played, total + played.get(i).value, i + 1) + endTotal15(played, total, i + 1);
+		else
+			return endTotal15(played, total, i + 1);
+	}
+	
+	// Check to see how many combinations in player's hand add up to 31 (recursion)
+	public static int endTotal31(ArrayList<Card> played, int total, int i)
+	{
+		if (total == 31)
+		{	
+			System.out.println("31");
+			return 2;
+		}	
+		
+		if (i == played.size())
+			return 0;
+		
+		if (total + played.get(i).value < 32)
+			return endTotal31(played, total + played.get(i).value, i + 1) + endTotal31(played, total, i + 1);
+		else
+			return endTotal31(played, total, i + 1);
+	}
+	
 	// Check to see if the cards in play add up to 15 or 31 (does not work for counting points at end of round)
 	public static int total15or31(ArrayList<Card> played)
 	{
@@ -436,7 +472,7 @@ public class Cribbage
 
 			// Add chosen card to played and remove it from player 1's hand. If that card would
 			// make the total value of all cards in play exceed 31, remove all cards from played
-			//  and start again from total value of 0.
+			//  and start again from total value of 0. Other player gets a point if total is above 31.
 			for(int i = 0; i < p1hand.size(); i++)
 			{
 				if (p1hand.get(i).name.equals(discardACard))
@@ -445,6 +481,7 @@ public class Cribbage
 
 					if(cardTotal > 31)
 					{
+						p2score++;
 						played.clear();
 						cardTotal = p1hand.get(i).value;
 					}
@@ -486,7 +523,7 @@ public class Cribbage
 
 			// Add chosen card to played and remove it from player 2's hand. If that card would
 			// make the total value of all cards in play exceed 31, remove all cards from played
-			//  and start again from total value of 0.
+			// and start again from total value of 0. Other player gets a point if total is above 31.
 			for(int i = 0; i < p2hand.size(); i++)
 			{
 				if (p2hand.get(i).name.equals(discardACard))
@@ -495,6 +532,7 @@ public class Cribbage
 
 					if(cardTotal > 31)
 					{
+						p1score++;
 						played.clear();
 						cardTotal = p2hand.get(i).value;
 					}
@@ -522,9 +560,9 @@ public class Cribbage
 
 		System.out.println();
 
-		// Find if there are pairs or a nobs in player 1's end hand and add the points to their
+		// Find if there are pairs, nobs, or all combinations that add up to 15 or 31 in player 1's end hand and add the points to their
 		// score
-		p1score = p1score + nobs(p1endHand) + pairs(p1endHand);
+		p1score = p1score + nobs(p1endHand) + pairs(p1endHand) + endTotal15(p1endHand, 0, 0) + endTotal31(p1endHand, 0, 0);
 
 		System.out.println("Player 1's Score: " + p1score);
 		System.out.println();
@@ -536,9 +574,9 @@ public class Cribbage
 
 		System.out.println();
 
-		// Find if there are pairs or a nobs in player 2's end hand and add the points to their
+		// Find if there are pairs, nobs, or all combinations that add up to 15 or 31 in player 2's end hand and add the points to their
 		// score. Player 2 gets a point for playing the last card of the round.
-		p2score = p2score + nobs(p2endHand) + pairs(p2endHand) + go();
+		p2score = p2score + nobs(p2endHand) + pairs(p2endHand) + endTotal15(p2endHand, 0, 0) + endTotal31(p2endHand, 0, 0) + go();
 
 		System.out.println("Player 2's Score: " + p2score);
 		System.out.println();
@@ -550,9 +588,9 @@ public class Cribbage
 
 		System.out.println();
 
-		// Find if there are pairs or a nobs in the crib and add the points to player 2's
+		// Find if there are pairs, nobs, or all combinations that add up to 15 or 31 in the crib and add the points to player 2's
 		// score. Player 2 gets to use the crib because player 1 was dealer.
-		p2score = p2score + nobs(crib)+ pairs(crib);
+		p2score = p2score + nobs(crib)+ pairs(crib) + endTotal15(crib, 0, 0) + endTotal31(crib, 0, 0);
 
 		System.out.println("Player 2's Score: " + p2score);
 
