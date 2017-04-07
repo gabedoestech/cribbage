@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 	<script>
+
 var cardsInDeck = new Array();
 var valCardsInDeck = new Array();
 var numberOfCardsInDeck = 52;
@@ -70,198 +72,255 @@ for (i = 48; i <=50; i++){
   cardsInDeck[51] = "sa";
 	valCardsInDeck[51] = 1;
 
+
 function startPlaying() {
 	if (numberOfCardsInDeck == 40) return false;
+	document.getElementById('startbutton').style.display = 'none';
+
+	function randomCard() {
+		return Math.floor(Math.random() * numberOfCardsInDeck);
+	}
+
+	function removeCard(c) {
+		for (j=c; j <= numberOfCardsInDeck-2; j++) {
+	 		cardsInDeck[j] = cardsInDeck[j+1];
+	  }
+	  numberOfCardsInDeck--;
+	 }
 
 	// make pointers to location of card piles
-	var firstPlayerRow = document.getElementById("playerOne").rows[0];
-  var secondPlayerRow = document.getElementById("playerTwo").rows[0];
-  var discardPileRow = document.getElementById("discardPile").rows[0];
+	var dealtRow = document.getElementById("dealtPile").rows[0];
+  var discardRow = document.getElementById("discardPile").rows[0];
+	var hiddenRow = document.getElementById("hiddenPile").rows[0];
+	var hidethemAll = hiddenRow.insertCell(-1);
+	document.getElementById("dealtPile").lastChild.style.visibility='hidden';
 
 	// create and deal card objects to player 1
 	i = randomCard();
-	var xP1C1=firstPlayerRow.insertCell(-1);
+	var xP1C1=dealtRow.insertCell(-1);
 	var imgP1C1 = document.createElement('img');
-	imgP1C1.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".jpg";
+	imgP1C1.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
 	xP1C1.appendChild(imgP1C1);
 	removeCard(i);
 
 	i = randomCard();
-	var xP1C2=firstPlayerRow.insertCell(-1);
+	var xP1C2=dealtRow.insertCell(-1);
 	var imgP1C2 = document.createElement('img');
-	imgP1C2.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".jpg";
+	imgP1C2.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
 	xP1C2.appendChild(imgP1C2);
 	removeCard(i);
 
 	i = randomCard();
-	var xP1C3=firstPlayerRow.insertCell(-1);
+	var xP1C3=dealtRow.insertCell(-1);
 	var imgP1C3 = document.createElement('img');
-	imgP1C3.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".jpg";
+	imgP1C3.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
 	xP1C3.appendChild(imgP1C3);
 	removeCard(i);
 
 	i = randomCard();
-	var xP1C4 = firstPlayerRow.insertCell(-1);
+	var xP1C4 = dealtRow.insertCell(-1);
 	var imgP1C4 = document.createElement('img');
-	imgP1C4.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".jpg";
+	imgP1C4.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
 	xP1C4.appendChild(imgP1C4);
 	removeCard(i);
 
 	i = randomCard();
-	var xP1C5 = firstPlayerRow.insertCell(-1);
+	var xP1C5 = dealtRow.insertCell(-1);
 	var imgP1C5 = document.createElement('img');
-	imgP1C5.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".jpg";
+	imgP1C5.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
 	xP1C5.appendChild(imgP1C5);
 	removeCard(i);
 
 	i = randomCard();
-	var xP1C6 = firstPlayerRow.insertCell(-1);
+	var xP1C6 = dealtRow.insertCell(-1);
 	var imgP1C6 = document.createElement('img');
-	imgP1C6.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".jpg";
+	imgP1C6.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
 	xP1C6.appendChild(imgP1C6);
 	removeCard(i);
 
-	// create and deal card objects to player 2
-	i = randomCard();
-	var xP2C1 = secondPlayerRow.insertCell(-1);
-	var imgP2C1 = document.createElement('img');
-	imgP2C1.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".jpg";
-	xP2C1.appendChild(imgP2C1);
-	removeCard(i);
 
-	i = randomCard();
-	var xP2C2 = secondPlayerRow.insertCell(-1);
-	var imgP2C2 = document.createElement('img');
-	imgP2C2.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".jpg";
-	xP2C2.appendChild(imgP2C2);
-	removeCard(i);
-
-	i = randomCard();
-	var xP2C3 = secondPlayerRow.insertCell(-1);
-	var imgP2C3 = document.createElement('img');
-	imgP2C3.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".jpg";
-	xP2C3.appendChild(imgP2C3);
-	removeCard(i);
-
-	i = randomCard();
-	var xP2C4 = secondPlayerRow.insertCell(-1);
-	var imgP2C4 = document.createElement('img');
-	imgP2C4.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".jpg";
-	xP2C4.appendChild(imgP2C4);
-	removeCard(i);
-
-	i = randomCard();
-	var xP2C5 = secondPlayerRow.insertCell(-1);
-	var imgP2C5 = document.createElement('img');
-	imgP2C5.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".jpg";
-	xP2C5.appendChild(imgP2C5);
-	removeCard(i);
-
-	i = randomCard();
-	var xP2C6 = secondPlayerRow.insertCell(-1);
-	var imgP2C6 = document.createElement('img');
-	imgP2C6.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".jpg";
-	xP2C6.appendChild(imgP2C6);
-	removeCard(i);
-
-// onclick methods
+	// Player 2's card objects onclick methods
 	$(imgP1C1).click(function() {
-		$(imgP1C1).detach().prependTo('#discardPile');
+		$(imgP1C1).detach().appendTo('#discardPile');
 		p1Hand -= 1;
+		checkState();
 	});
 
 	$(imgP1C2).click(function() {
-		$(imgP1C2).detach().prependTo('#discardPile');
+		$(imgP1C2).detach().appendTo('#discardPile');
 		p1Hand -= 1;
+		checkState();
 	});
 
 	$(imgP1C3).click(function() {
-		$(imgP1C3).detach().prependTo('#discardPile');
+		$(imgP1C3).detach().appendTo('#discardPile');
 		p1Hand -= 1;
+		checkState();
 	});
 
 	$(imgP1C4).click(function() {
-		$(imgP1C4).detach().prependTo('#discardPile');
+		$(imgP1C4).detach().appendTo('#discardPile');
 		p1Hand -= 1;
+		checkState();
 	});
 
 	$(imgP1C5).click(function() {
-		$(imgP1C5).detach().prependTo('#discardPile');
+		$(imgP1C5).detach().appendTo('#discardPile');
 		p1Hand -= 1;
+		checkState();
 	});
 
 	$(imgP1C6).click(function() {
-		$(imgP1C6).detach().prependTo('#discardPile');
+		$(imgP1C6).detach().appendTo('#discardPile');
 		p1Hand -= 1;
+		checkState();
 	});
 
-	$(imgP2C1).click(function() {
-		$(imgP2C1).detach().prependTo('#discardPile');
-		p2Hand -= 1;
-	});
+alert("\n\nPlayer One: please discard two cards.");
+checkState();
 
-	$(imgP2C2).click(function() {
-		$(imgP2C2).detach().prependTo('#discardPile');
-		p2Hand -= 1;
-	});
-
-	$(imgP2C3).click(function() {
-		$(imgP2C3).detach().prependTo('#discardPile');
-		p2Hand -= 1;
-	});
-
-	$(imgP2C4).click(function() {
-		$(imgP2C4).detach().prependTo('#discardPile');
-		p2Hand -= 1;
-	});
-
-	$(imgP2C5).click(function() {
-		$(imgP2C5).detach().prependTo('#discardPile');
-		p2Hand -= 1;
-	});
-
-	$(imgP2C6).click(function() {
-		$(imgP2C6).detach().prependTo('#discardPile');
-		p2Hand -= 1;
-	});
-
-
-
-function randomCard() {
-	return Math.floor(Math.random() * numberOfCardsInDeck);
+function checkState() {
+	if (p1Hand>=5){
+		checkState();
+	}
+	else if(p1Hand==4){
+	 document.getElementById("dealtPile").lastChild.detach().appendTo('#hiddenPile');
+		generateP2Cards();
+	}
 }
 
-function removeCard(c) {
-	for (j=c; j <= numberOfCardsInDeck-2; j++) {
- 		cardsInDeck[j] = cardsInDeck[j+1];
-  }
-  numberOfCardsInDeck--;
- }
+function checkState2() {
+	if (p2Hand>=5){
+		checkState2();
+	}
+	else if(p2Hand==4) {
+		hideP2Cards();
+		alert("\n\nPlayer One: Get ready to play!");
+		playState1();
+	}
+}
+function playState1() {
+alert("You won!");
+}
 
+function generateP2Cards() {
+
+		// create and deal card objects to player 2
+		i = randomCard();
+		var xP2C1 = dealtRow.insertCell(-1);
+		var imgP2C1 = document.createElement('img');
+		imgP2C1.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+		xP2C1.appendChild(imgP2C1);
+		removeCard(i);
+
+		i = randomCard();
+		var xP2C2 = dealtRow.insertCell(-1);
+		var imgP2C2 = document.createElement('img');
+		imgP2C2.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+		xP2C2.appendChild(imgP2C2);
+		removeCard(i);
+
+		i = randomCard();
+		var xP2C3 = dealtRow.insertCell(-1);
+		var imgP2C3 = document.createElement('img');
+		imgP2C3.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+		xP2C3.appendChild(imgP2C3);
+		removeCard(i);
+
+		i = randomCard();
+		var xP2C4 = dealtRow.insertCell(-1);
+		var imgP2C4 = document.createElement('img');
+		imgP2C4.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+		xP2C4.appendChild(imgP2C4);
+		removeCard(i);
+
+		i = randomCard();
+		var xP2C5 = dealtRow.insertCell(-1);
+		var imgP2C5 = document.createElement('img');
+		imgP2C5.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+		xP2C5.appendChild(imgP2C5);
+		removeCard(i);
+
+		i = randomCard();
+		var xP2C6 = dealtRow.insertCell(-1);
+		var imgP2C6 = document.createElement('img');
+		imgP2C6.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+		xP2C6.appendChild(imgP2C6);
+		removeCard(i);
+
+		  // Player 2's card objects onclick methods
+
+			$(imgP2C1).click(function() {
+				$(imgP2C1).detach().appendTo('#discardPile');
+				p2Hand -= 1;
+				checkState2();
+			});
+
+			$(imgP2C2).click(function() {
+				$(imgP2C2).detach().appendTo('#discardPile');
+				p2Hand -= 1;
+				checkState2();
+			});
+
+			$(imgP2C3).click(function() {
+				$(imgP2C3).detach().appendTo('#discardPile');
+				p2Hand -= 1;
+				checkState2();
+			});
+
+			$(imgP2C4).click(function() {
+				$(imgP2C4).detach().appendTo('#discardPile');
+				p2Hand -= 1;
+				checkState2();
+			});
+
+			$(imgP2C5).click(function() {
+				$(imgP2C5).detach().appendTo('#discardPile');
+				p2Hand -= 1;
+				checkState2();
+			});
+
+			$(imgP2C6).click(function() {
+				$(imgP2C6).detach().appendTo('#discardPile');
+				p2Hand -= 1;
+				checkState2();
+			});
+	alert("\n\nPlayer Two: please discard two cards.");
+	checkState2();
+}
 }
 </script>
 </head>
 <body>
- <button type="button" onclick="startPlaying()">Start Playing</button>
+ <button id="startbutton" type="button" onclick="startPlaying()">Start Playing</button>
 
- <table id="playerOne">
+ <br>
+
+ <div class="p1Hand"></div>
+ <div class="p2Hand"></div>
+
+ <br>
+
+ <table id="dealtPile">
 	 <th>
 	 </th>
  </table>
 
  <br>
+ <br>
 
- <table id="playerTwo">
-  <th>
-	</th>
- </table>
-
-<br><br><br>
-<br><br><br>
  <table id="discardPile">
 	 <th>
 	 </th>
  </table>
+ <br>
+ <br>
+
+ <table id="hiddenPile">
+	<th>
+	</th>
+ </table>
+
 
 </body>
 </html>
