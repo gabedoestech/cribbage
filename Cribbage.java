@@ -22,103 +22,133 @@ class Card
 	}
 }
 
-public class Cribbage 
+public class Cribbage
 {
 	// Check to see if the cards in play add up to 15 or 31 (does not work for counting points at end of round)
 	public static int total15or31(ArrayList<Card> played)
 	{
 		int total = 0;
-		
+
 		for(int i = 0; i < played.size(); i++)
 			total += played.get(i).value;
-		
+
 		if (total == 15)
-		{	
+		{
 			System.out.println("15");
 			return 2;
-		}	
+		}
 		else if (total == 31)
-		{	
+		{
 			System.out.println("31");
 			return 2;
-		}	
+		}
 		else
 			return 0;
 	}
-	
+
+    public static int inPlayPairs(ArrayList<Card> played, String c)
+	{
+		int total = 0;
+
+		for (int i = 0; i < played.size(); i++)
+		{
+			// Find all pairs
+            if (played.get(i).card.equals(c))
+                total++;
+		}
+
+        if (total == 2)
+        {
+            System.out.println("Pair");
+            return 2;
+        }
+        else if (total == 3)
+        {
+            System.out.println("Pair royal");
+            return 6;
+        }
+        else if (total == 4)
+        {
+            System.out.println("Double Pair Royal");
+            return 12;
+        }
+
+        return 0;
+	}
+
 	// Checks to see if there are any pairs (does not work for when actually playing cards)
 	public static int pairs(ArrayList<Card> played)
-	{		
+	{
 		HashSet<String> alreadyCounted = new HashSet<String>();
 		int total = 0, score = 0;
-		
+
 		for (int i = 0; i < played.size(); i++)
 		{
 			if (total == 1)
-			{	
+			{
 				score += 2;
 				System.out.println("Pair");
-			}	
+			}
 			else if (total == 2)
-			{	
+			{
 				score += 6;
 				System.out.println("Pair royal");
-			}	
+			}
 			else if (total == 3)
-			{	
+			{
 				score += 12;
 				System.out.println("Double Pair Royal");
 			}
-			
+
 			total = 0;
-			
+
 			// Skip if we've already found all the pairs for this card
 			if (alreadyCounted.contains(played.get(i).card))
 				continue;
-			
+
 			// Find all pairs
 			for (int j = 0; j < played.size(); j++)
-			{	
+			{
 				if (played.get(i).card.equals(played.get(j).card) && j > i)
 				{
 					total++;
 					alreadyCounted.add(played.get(i).card);
 				}
-				
+
 			}
 		}
-		
+
 		return score;
 	}
-	
+
 	// Not implemented
 	public static int run(ArrayList<Card> played)
 	{
 		return 0;
 	}
-	
+
 	// Score for playing the last card
 	public static int go()
 	{
 		System.out.println("Go");
 		return 1;
 	}
-	
+
 	// Check to see if a hand has a jack that matches the suit of the card on top of the deck (checks at the end of a round)
 	public static int nobs(ArrayList<Card> played)
 	{
 		for(int i = 0; i < played.size() - 1; i++)
 		{
 			if(played.get(i).card.equals("J") && played.get(i).type.equals(played.get(played.size() - 1).type))
-			{	
+			{
 				System.out.println("Nobs");
 				return 1;
 			}
 		}
-		
+
 		return 0;
 	}
-	
+
 	public static void main(String [] args)
 	{
 		// Holds the deck of cards
@@ -140,7 +170,7 @@ public class Cribbage
 		Scanner sc = new Scanner(System.in);
 		int index, p1score = 0, p2score = 0, cardTotal = 0;
 		String confirm;
-	
+
 		// Create all 52 cards
 		Card dA = new Card("dA","A","d",1);
 		Card sA = new Card("sA","A","s",1);
@@ -194,7 +224,7 @@ public class Cribbage
 		Card sK = new Card("sK","K","s",10);
 		Card cK = new Card("cK","K","c",10);
 		Card hK = new Card("hK","K","h",10);
-	
+
 		// Add all 52 cards to the deck
 		deck.add(dA);
 		deck.add(sA);
@@ -248,7 +278,7 @@ public class Cribbage
 		deck.add(sK);
 		deck.add(cK);
 		deck.add(hK);
-		
+
 		// Randomly give player 1 six cards, removing them from the deck and adding to player 1's
 		// hand and end hand
 		for (int i = 0; i < 6; i++)
@@ -258,7 +288,7 @@ public class Cribbage
 			p1endHand.add(deck.get(index));
 			deck.remove(deck.get(index));
 		}
-		
+
 		// Randomly give player 2 six cards, removing them from the deck and adding to player 2's
 		// hand and end hand
 		for (int i = 0; i < 6; i++)
@@ -268,21 +298,21 @@ public class Cribbage
 			p2endHand.add(deck.get(index));
 			deck.remove(deck.get(index));
 		}
-		
+
 		// Randomly picks one of the remaining cards in the deck to use as the card on top of the deck
 		topOfDeck.add(deck.get((int)(Math.random() * (deck.size()))));
-		
+
 		System.out.println("Player 1's Hand: ");
-		
+
 		for(Card card : p1hand)
 			System.out.print(card.name + " ");
-		
+
 		System.out.println();
 		System.out.println();
-		
+
 		System.out.println("Choose a card to discard: ");
 		String discardACard = sc.next();
-		
+
 		// Discard card from player 1's hand and end hand and adds it to the crib
 		for(int i = 0; i < p1hand.size(); i++)
 		{
@@ -291,22 +321,22 @@ public class Cribbage
 				crib.add(p1hand.get(i));
 				p1hand.remove(p1hand.get(i));
 				p1endHand.remove(p1endHand.get(i));
-			}	
+			}
 		}
-		
+
 		System.out.println();
 		System.out.println("Player 1's Hand: ");
-		
+
 		for(Card card : p1hand)
 			System.out.print(card.name + " ");
-		
+
 		System.out.println();
 		System.out.println();
-		
+
 		// Discard second card from player 1's hand and end hand and adds it to the crib
 		System.out.println("Choose another card to discard: ");
 		discardACard = sc.next();
-		
+
 		for(int i = 0; i < p1hand.size(); i++)
 		{
 			if (p1hand.get(i).name.equals(discardACard))
@@ -314,27 +344,27 @@ public class Cribbage
 				crib.add(p1hand.get(i));
 				p1hand.remove(p1hand.get(i));
 				p1endHand.remove(p1endHand.get(i));
-			}	
+			}
 		}
-		
+
 		// Confirmation of ending turn
 		System.out.println();
 		System.out.println("End turn?");
 		confirm = sc.next();
 		System.out.println();
-		
+
 		System.out.println("Player 2's Hand: ");
-		
+
 		for(Card card : p2hand)
 			System.out.print(card.name + " ");
-		
+
 		System.out.println();
 		System.out.println();
-		
+
 		// Discard card from player 2's hand and end hand and adds it to the crib
 		System.out.println("Choose a card to discard: ");
 		discardACard = sc.next();
-		
+
 		for(int i = 0; i < p2hand.size(); i++)
 		{
 			if (p2hand.get(i).name.equals(discardACard))
@@ -342,22 +372,22 @@ public class Cribbage
 				crib.add(p2hand.get(i));
 				p2hand.remove(p2hand.get(i));
 				p2endHand.remove(p2endHand.get(i));
-			}	
+			}
 		}
-		
+
 		System.out.println();
 		System.out.println("Player 2's Hand: ");
-		
+
 		for(Card card : p2hand)
 			System.out.print(card.name + " ");
-		
+
 		System.out.println();
 		System.out.println();
-		
+
 		// Discard second card from player 2's hand and end hand and adds it to the crib
 		System.out.println("Choose another card to discard: ");
 		discardACard = sc.next();
-		
+
 		for(int i = 0; i < p2hand.size(); i++)
 		{
 			if (p2hand.get(i).name.equals(discardACard))
@@ -365,15 +395,15 @@ public class Cribbage
 				crib.add(p2hand.get(i));
 				p2hand.remove(p2hand.get(i));
 				p2endHand.remove(p2endHand.get(i));
-			}	
+			}
 		}
-		
+
 		// Confirmation of ending turn
 		System.out.println();
 		System.out.println("End turn?");
 		confirm = sc.next();
 		System.out.println();
-		
+
 		// Adds card on top of deck to crib, player 1's end hand, and player 2's end hand (can happen
 		// after the round has ended instead)
 		crib.add(topOfDeck.get(0));
@@ -386,25 +416,25 @@ public class Cribbage
 			System.out.println("Player 1's Turn");
 			System.out.println("---------------");
 			System.out.println("Player 1's Hand: ");
-		
+
 			for(Card card : p1hand)
 				System.out.print(card.name + " ");
-		
+
 				System.out.println();
 				System.out.println();
-		
+
 				System.out.println("Cards in play: ");
-		
+
 			for(Card card : played)
 				System.out.print(card.name + " ");
-		
+
 			System.out.println();
 			System.out.println();
-		
+
 			System.out.println("Choose a card to play: ");
 			discardACard = sc.next();
-		
-			// Add chosen card to played and remove it from player 1's hand. If that card would 
+
+			// Add chosen card to played and remove it from player 1's hand. If that card would
 			// make the total value of all cards in play exceed 31, remove all cards from played
 			//  and start again from total value of 0.
 			for(int i = 0; i < p1hand.size(); i++)
@@ -412,49 +442,49 @@ public class Cribbage
 				if (p1hand.get(i).name.equals(discardACard))
 				{
 					cardTotal += p1hand.get(i).value;
-					
+
 					if(cardTotal > 31)
 					{
 						played.clear();
-						cardTotal = p1hand.get(i).value; 
+						cardTotal = p1hand.get(i).value;
 					}
-					
+
 					played.add(p1hand.get(i));
 					p1hand.remove(p1hand.get(i));
-				}	
+				}
 			}
-		
-			// Check to see if the all cards in play add up to 15 or 31. Give points to player 1 
+
+			// Check to see if the all cards in play add up to 15 or 31. Give points to player 1
 			// if they do
-			p1score = p1score + total15or31(played);
-		
+			p1score = p1score + total15or31(played) + inPlayPairs(played, played.get(played.size() - 1).card);
+
 			System.out.println("Player 1's Score: " + p1score);
 			System.out.println("End turn?");
 			confirm = sc.next();
 			System.out.println();
-		
+
 			System.out.println("Player 2's Turn: ");
 			System.out.println("---------------");
 			System.out.println("Player 2's Hand: ");
-		
+
 			for(Card card : p2hand)
 				System.out.print(card.name + " ");
-		
+
 			System.out.println();
 			System.out.println();
-			
+
 			System.out.println("Cards in play: ");
-		
+
 			for(Card card : played)
 				System.out.print(card.name + " ");
-		
+
 			System.out.println();
 			System.out.println();
-		
+
 			System.out.println("Choose a card to play: ");
 			discardACard = sc.next();
-		
-			// Add chosen card to played and remove it from player 2's hand. If that card would 
+
+			// Add chosen card to played and remove it from player 2's hand. If that card would
 			// make the total value of all cards in play exceed 31, remove all cards from played
 			//  and start again from total value of 0.
 			for(int i = 0; i < p2hand.size(); i++)
@@ -462,75 +492,75 @@ public class Cribbage
 				if (p2hand.get(i).name.equals(discardACard))
 				{
 					cardTotal += p2hand.get(i).value;
-					
+
 					if(cardTotal > 31)
 					{
 						played.clear();
-						cardTotal = p2hand.get(i).value; 
+						cardTotal = p2hand.get(i).value;
 					}
-					
+
 					played.add(p2hand.get(i));
 					p2hand.remove(p2hand.get(i));
-				}	
+				}
 			}
-		
-			// Check to see if the all cards in play add up to 15 or 31. Give points to player 1 
+
+			// Check to see if the all cards in play add up to 15 or 31. Give points to player 1
 			// if they do
-			p2score = p2score + total15or31(played);
-		
+			p2score = p2score + total15or31(played) + inPlayPairs(played, played.get(played.size() - 1).card);
+
 			System.out.println("Player 2's Score: " + p2score);
-		
+
 			System.out.println("End turn?");
 			confirm = sc.next();
 			System.out.println();
 		}
-		
+
 		System.out.println("Player 1's Final Hand: ");
-		
+
 		for(Card card : p1endHand)
 			System.out.print(card.name + " ");
-		
+
 		System.out.println();
-		
+
 		// Find if there are pairs or a nobs in player 1's end hand and add the points to their
 		// score
 		p1score = p1score + nobs(p1endHand) + pairs(p1endHand);
-		
+
 		System.out.println("Player 1's Score: " + p1score);
 		System.out.println();
-		
+
 		System.out.println("Player 2's Final Hand: ");
-		
+
 		for(Card card : p2endHand)
 			System.out.print(card.name + " ");
 
 		System.out.println();
-		
+
 		// Find if there are pairs or a nobs in player 2's end hand and add the points to their
 		// score. Player 2 gets a point for playing the last card of the round.
 		p2score = p2score + nobs(p2endHand) + pairs(p2endHand) + go();
-		
+
 		System.out.println("Player 2's Score: " + p2score);
 		System.out.println();
-		
+
 		System.out.println("Crib Hand: ");
-		
+
 		for(Card card : crib)
 			System.out.print(card.name + " ");
 
 		System.out.println();
-		
+
 		// Find if there are pairs or a nobs in the crib and add the points to player 2's
 		// score. Player 2 gets to use the crib because player 1 was dealer.
 		p2score = p2score + nobs(crib)+ pairs(crib);
-		
+
 		System.out.println("Player 2's Score: " + p2score);
-		
+
 		System.out.println();
-		
+
 		System.out.println("Player 1's Final Score: " + p1score);
 		System.out.println("Player 2's Final Score: " + p2score);
-		
+
 		if(p1score > p2score)
 			System.out.println("Player 1 wins with a score of " + p1score + "!");
 		else if (p1score < p2score)
