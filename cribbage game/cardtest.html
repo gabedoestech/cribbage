@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	html,body{height:100%;}
+	body{
+		background-image: url("cribage-board-draft-4.png");
+	}
+	#start{
+	position: absolute;
+	top:66.4%;
+	left:84.8%;
+	margin-top: -50px;
+	margin-left: -50px;
+	}
+</style>
+	<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+	<script>
+var cardsInDeck = new Array();
+var valCardsInDeck = new Array();
+var numberOfCardsInDeck = 52;
+var p1Hand = 6;
+var p2Hand = 6;
+
+
+for (i = 0; i <= 8; i++){
+	cardsInDeck[i] = ("c"+(i+2));
+  valCardsInDeck[i+0] = (i+2);
+  }
+
+for (i = 9; i <=11; i++ ) {
+    valCardsInDeck[i] = 10;
+}
+
+  cardsInDeck[9] = "cj";
+  cardsInDeck[10] = "cq";
+  cardsInDeck[11] = "ck";
+  cardsInDeck[12] = "ca";
+	valCardsInDeck[12] = 1;
+
+for (i = 0; i <= 8; i++){
+	cardsInDeck[i+13] = ("d"+(i+2));
+  valCardsInDeck[i+13] = (i+2);
+  }
+
+for (i = 22; i <= 24; i++ ) {
+      valCardsInDeck[i] = 10;
+  }
+
+  cardsInDeck[22] = "dj";
+  cardsInDeck[23] = "dq";
+  cardsInDeck[24] = "dk";
+  cardsInDeck[25] = "da";
+	valCardsInDeck[25] = 1;
+
+for (i = 0; i <= 8; i++){
+	cardsInDeck[i+26] = ("h"+(i+2));
+  valCardsInDeck[i+26] = (i+2);
+  }
+
+for (i = 35; i <=37; i++ ){
+      valCardsInDeck[i] = 10;
+  }
+
+  cardsInDeck[35] = "hj";
+  cardsInDeck[36] = "hq";
+  cardsInDeck[37] = "hk";
+  cardsInDeck[38] = "ha";
+	valCardsInDeck[38] = 1;
+
+for (i = 0; i <= 8; i++){
+	cardsInDeck[i+39] = ("s"+(i+2));
+  valCardsInDeck[i+39] = (i+2);
+  }
+
+for (i = 48; i <=50; i++){
+  valCardsInDeck[i] = 10;
+  }
+
+  cardsInDeck[48] = "sj";
+  cardsInDeck[49] = "sq";
+  cardsInDeck[50] = "sk";
+  cardsInDeck[51] = "sa";
+	valCardsInDeck[51] = 1;
+
+function startPlaying() {
+	if (numberOfCardsInDeck == 40) return false;
+
+	// make pointers to location of card piles
+	var firstPlayerRow = document.getElementById("playerOne").rows[0];
+  var secondPlayerRow = document.getElementById("playerTwo").rows[0];
+  var discardPileRow = document.getElementById("discardPile").rows[0];
+
+	// create and deal card objects to player 1
+	i = randomCard();
+	var xP1C1=firstPlayerRow.insertCell(-1);
+	var imgP1C1 = document.createElement('img');
+	imgP1C1.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+	xP1C1.appendChild(imgP1C1);
+	removeCard(i);
+
+	i = randomCard();
+	var xP1C2=firstPlayerRow.insertCell(-1);
+	var imgP1C2 = document.createElement('img');
+	imgP1C2.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+	xP1C2.appendChild(imgP1C2);
+	removeCard(i);
+
+	i = randomCard();
+	var xP1C3=firstPlayerRow.insertCell(-1);
+	var imgP1C3 = document.createElement('img');
+	imgP1C3.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+	xP1C3.appendChild(imgP1C3);
+	removeCard(i);
+
+	i = randomCard();
+	var xP1C4 = firstPlayerRow.insertCell(-1);
+	var imgP1C4 = document.createElement('img');
+	imgP1C4.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+	xP1C4.appendChild(imgP1C4);
+	removeCard(i);
+
+	i = randomCard();
+	var xP1C5 = firstPlayerRow.insertCell(-1);
+	var imgP1C5 = document.createElement('img');
+	imgP1C5.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+	xP1C5.appendChild(imgP1C5);
+	removeCard(i);
+
+	i = randomCard();
+	var xP1C6 = firstPlayerRow.insertCell(-1);
+	var imgP1C6 = document.createElement('img');
+	imgP1C6.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+	xP1C6.appendChild(imgP1C6);
+	removeCard(i);
+
+	// create and deal card objects to player 2
+	i = randomCard();
+	var xP2C1 = secondPlayerRow.insertCell(-1);
+	var imgP2C1 = document.createElement('img');
+	imgP2C1.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+	xP2C1.appendChild(imgP2C1);
+	removeCard(i);
+
+	i = randomCard();
+	var xP2C2 = secondPlayerRow.insertCell(-1);
+	var imgP2C2 = document.createElement('img');
+	imgP2C2.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+	xP2C2.appendChild(imgP2C2);
+	removeCard(i);
+
+	i = randomCard();
+	var xP2C3 = secondPlayerRow.insertCell(-1);
+	var imgP2C3 = document.createElement('img');
+	imgP2C3.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+	xP2C3.appendChild(imgP2C3);
+	removeCard(i);
+
+	i = randomCard();
+	var xP2C4 = secondPlayerRow.insertCell(-1);
+	var imgP2C4 = document.createElement('img');
+	imgP2C4.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+	xP2C4.appendChild(imgP2C4);
+	removeCard(i);
+
+	i = randomCard();
+	var xP2C5 = secondPlayerRow.insertCell(-1);
+	var imgP2C5 = document.createElement('img');
+	imgP2C5.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+	xP2C5.appendChild(imgP2C5);
+	removeCard(i);
+
+	i = randomCard();
+	var xP2C6 = secondPlayerRow.insertCell(-1);
+	var imgP2C6 = document.createElement('img');
+	imgP2C6.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+	xP2C6.appendChild(imgP2C6);
+	removeCard(i);
+
+// onclick methods
+	$(imgP1C1).click(function() {
+		$(imgP1C1).detach().prependTo('#discardPile');
+		p1Hand -= 1;
+	});
+
+	$(imgP1C2).click(function() {
+		$(imgP1C2).detach().prependTo('#discardPile');
+		p1Hand -= 1;
+	});
+
+	$(imgP1C3).click(function() {
+		$(imgP1C3).detach().prependTo('#discardPile');
+		p1Hand -= 1;
+	});
+
+	$(imgP1C4).click(function() {
+		$(imgP1C4).detach().prependTo('#discardPile');
+		p1Hand -= 1;
+	});
+
+	$(imgP1C5).click(function() {
+		$(imgP1C5).detach().prependTo('#discardPile');
+		p1Hand -= 1;
+	});
+
+	$(imgP1C6).click(function() {
+		$(imgP1C6).detach().prependTo('#discardPile');
+		p1Hand -= 1;
+	});
+
+	$(imgP2C1).click(function() {
+		$(imgP2C1).detach().prependTo('#discardPile');
+		p2Hand -= 1;
+	});
+
+	$(imgP2C2).click(function() {
+		$(imgP2C2).detach().prependTo('#discardPile');
+		p2Hand -= 1;
+	});
+
+	$(imgP2C3).click(function() {
+		$(imgP2C3).detach().prependTo('#discardPile');
+		p2Hand -= 1;
+	});
+
+	$(imgP2C4).click(function() {
+		$(imgP2C4).detach().prependTo('#discardPile');
+		p2Hand -= 1;
+	});
+
+	$(imgP2C5).click(function() {
+		$(imgP2C5).detach().prependTo('#discardPile');
+		p2Hand -= 1;
+	});
+
+	$(imgP2C6).click(function() {
+		$(imgP2C6).detach().prependTo('#discardPile');
+		p2Hand -= 1;
+	});
+
+
+
+function randomCard() {
+	return Math.floor(Math.random() * numberOfCardsInDeck);
+}
+
+function removeCard(c) {
+	for (j=c; j <= numberOfCardsInDeck-2; j++) {
+ 		cardsInDeck[j] = cardsInDeck[j+1];
+  }
+  numberOfCardsInDeck--;
+ }
+
+}
+</script>
+</head>
+<body>
+ <input type="image" id="start" src="startbutton.png" onClick="startPlaying()"/>
+
+
+ <table id="playerOne">
+	 <th>
+	 </th>
+ </table>
+
+ <br>
+
+ <table id="playerTwo">
+  <th>
+	</th>
+ </table>
+
+<br><br><br>
+<br><br><br>
+ <table id="discardPile">
+	 <th>
+	 </th>
+ </table>
+
+</body>
+</html>
