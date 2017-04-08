@@ -75,7 +75,7 @@ for (i = 48; i <=50; i++){
 
 function startPlaying() {
 	if (numberOfCardsInDeck == 40) return false;
-	document.getElementById('startbutton').style.display = 'none';
+	document.getElementById('startbutton').style.visibility = 'hidden';
 
 	function randomCard() {
 		return Math.floor(Math.random() * numberOfCardsInDeck);
@@ -89,91 +89,198 @@ function startPlaying() {
 	 }
 
 	// make pointers to location of card piles
-	var dealtRow = document.getElementById("dealtPile").rows[0];
-  var discardRow = document.getElementById("discardPile").rows[0];
-	var hiddenRow = document.getElementById("hiddenPile").rows[0];
-	var hidethemAll = hiddenRow.insertCell(-1);
-	document.getElementById("dealtPile").lastChild.style.visibility='hidden';
+	var p1DealtRow = document.getElementById("p1DealtPile").rows[0];
+	var p2DealtRow = document.getElementById("p2DealtPile").rows[0];
+	var discardRow = document.getElementById("discardPile").rows[0];
+	var playRow = document.getElementById("playPile").rows[0];
 
 	// create and deal card objects to player 1
 	i = randomCard();
-	var xP1C1=dealtRow.insertCell(-1);
+	var xP1C1=p1DealtRow.insertCell(-1);
 	var imgP1C1 = document.createElement('img');
 	imgP1C1.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
 	xP1C1.appendChild(imgP1C1);
 	removeCard(i);
 
 	i = randomCard();
-	var xP1C2=dealtRow.insertCell(-1);
+	var xP1C2=p1DealtRow.insertCell(-1);
 	var imgP1C2 = document.createElement('img');
 	imgP1C2.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
 	xP1C2.appendChild(imgP1C2);
 	removeCard(i);
 
 	i = randomCard();
-	var xP1C3=dealtRow.insertCell(-1);
+	var xP1C3=p1DealtRow.insertCell(-1);
 	var imgP1C3 = document.createElement('img');
 	imgP1C3.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
 	xP1C3.appendChild(imgP1C3);
 	removeCard(i);
 
 	i = randomCard();
-	var xP1C4 = dealtRow.insertCell(-1);
+	var xP1C4 = p1DealtRow.insertCell(-1);
 	var imgP1C4 = document.createElement('img');
 	imgP1C4.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
 	xP1C4.appendChild(imgP1C4);
 	removeCard(i);
 
 	i = randomCard();
-	var xP1C5 = dealtRow.insertCell(-1);
+	var xP1C5 = p1DealtRow.insertCell(-1);
 	var imgP1C5 = document.createElement('img');
 	imgP1C5.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
 	xP1C5.appendChild(imgP1C5);
 	removeCard(i);
 
 	i = randomCard();
-	var xP1C6 = dealtRow.insertCell(-1);
+	var xP1C6 = p1DealtRow.insertCell(-1);
 	var imgP1C6 = document.createElement('img');
 	imgP1C6.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
 	xP1C6.appendChild(imgP1C6);
 	removeCard(i);
 
 
-	// Player 2's card objects onclick methods
+	// Player 1's card objects onclick methods
 	$(imgP1C1).click(function() {
-		$(imgP1C1).detach().appendTo('#discardPile');
-		p1Hand -= 1;
-		checkState();
+		p1Hand -=1;
+		if (p1Hand >= 4){
+			$(imgP1C1).detach().appendTo('#discardPile');
+			checkState();
+		}
+		else if (p1Hand >= 3){
+			$(imgP1C1).detach().appendTo('#playPile');
+			playState1();
+		}
+		else if (p1Hand >= 2){
+			$(imgP1C1).detach().appendTo('#playPile');
+			playState3();
+		}
+		else if (p1Hand >=1){
+			$(imgP1C1).detach().appendTo('#playPile');
+			playState5();
+		}
+		else {
+			$(imgP1C1).detach().appendTo('#playPile');
+			playState7();
+		}
 	});
 
 	$(imgP1C2).click(function() {
-		$(imgP1C2).detach().appendTo('#discardPile');
-		p1Hand -= 1;
-		checkState();
+		p1Hand -=1;
+		if (p1Hand >= 4){
+			$(imgP1C2).detach().appendTo('#discardPile');
+			checkState();
+		}
+		else if (p1Hand == 3){
+			$(imgP1C2).detach().appendTo('#playPile');
+			playState1();
+		}
+		else if (p1Hand >= 2){
+			$(imgP1C2).detach().appendTo('#playPile');
+			playState3();
+		}
+		else if (p1Hand >=1){
+			$(imgP1C2).detach().appendTo('#playPile');
+			playState5();
+		}
+		else {
+			$(imgP1C2).detach().appendTo('#playPile');
+			playState7();
+		}
 	});
 
 	$(imgP1C3).click(function() {
-		$(imgP1C3).detach().appendTo('#discardPile');
-		p1Hand -= 1;
-		checkState();
+		p1Hand -=1;
+		if (p1Hand >= 4){
+			$(imgP1C3).detach().appendTo('#discardPile');
+			checkState();
+		}
+		else if (p1Hand >= 3){
+			$(imgP1C3).detach().appendTo('#playPile');
+			playState1();
+		}
+		else if (p1Hand >= 2){
+			$(imgP1C3).detach().appendTo('#playPile');
+			playState3();
+		}
+		else if (p1Hand >=1){
+			$(imgP1C3).detach().appendTo('#playPile');
+			playState5();
+		}
+		else {
+			$(imgP1C3).detach().appendTo('#playPile');
+			playState7();
+		}
 	});
 
 	$(imgP1C4).click(function() {
-		$(imgP1C4).detach().appendTo('#discardPile');
-		p1Hand -= 1;
-		checkState();
+		p1Hand -=1;
+		if (p1Hand >= 4){
+			$(imgP1C4).detach().appendTo('#discardPile');
+			checkState();
+		}
+		else if (p1Hand >= 3){
+			$(imgP1C4).detach().appendTo('#playPile');
+			playState1();
+		}
+		else if (p1Hand >= 2){
+			$(imgP1C4).detach().appendTo('#playPile');
+			playState3();
+		}
+		else if (p1Hand >=1){
+			$(imgP1C4).detach().appendTo('#playPile');
+			playState5();
+		}
+		else {
+			$(imgP1C4).detach().appendTo('#playPile');
+			playState7();
+		}
 	});
 
 	$(imgP1C5).click(function() {
-		$(imgP1C5).detach().appendTo('#discardPile');
-		p1Hand -= 1;
-		checkState();
+		p1Hand -=1;
+		if (p1Hand >= 4){
+			$(imgP1C5).detach().appendTo('#discardPile');
+			checkState();
+		}
+		else if (p1Hand >= 3){
+			$(imgP1C5).detach().appendTo('#playPile');
+			playState1();
+		}
+		else if (p1Hand >= 2){
+			$(imgP1C5).detach().appendTo('#playPile');
+			playState3();
+		}
+		else if (p1Hand >=1){
+			$(imgP1C5).detach().appendTo('#playPile');
+			playState5();
+		}
+		else {
+			$(imgP1C5).detach().appendTo('#playPile');
+			playState7();
+		}
 	});
 
 	$(imgP1C6).click(function() {
-		$(imgP1C6).detach().appendTo('#discardPile');
-		p1Hand -= 1;
-		checkState();
+		p1Hand -=1;
+		if (p1Hand >= 4){
+			$(imgP1C6).detach().appendTo('#discardPile');
+			checkState();
+		}
+		else if (p1Hand >= 3){
+			$(imgP1C6).detach().appendTo('#playPile');
+			playState1();
+		}
+		else if (p1Hand >= 2){
+			$(imgP1C6).detach().appendTo('#playPile');
+			playState3();
+		}
+		else if (p1Hand >=1){
+			$(imgP1C6).detach().appendTo('#playPile');
+			playState5();
+		}
+		else {
+			$(imgP1C6).detach().appendTo('#playPile');
+			playState7();
+		}
 	});
 
 alert("\n\nPlayer One: please discard two cards.");
@@ -184,109 +291,309 @@ function checkState() {
 		checkState();
 	}
 	else if(p1Hand==4){
-	 document.getElementById("dealtPile").lastChild.detach().appendTo('#hiddenPile');
+		document.getElementById('p1DealtPile').lastChild.style.visibility='hidden';
 		generateP2Cards();
 	}
-}
-
-function checkState2() {
-	if (p2Hand>=5){
-		checkState2();
-	}
-	else if(p2Hand==4) {
-		hideP2Cards();
-		alert("\n\nPlayer One: Get ready to play!");
-		playState1();
-	}
-}
-function playState1() {
-alert("You won!");
-}
 
 function generateP2Cards() {
 
 		// create and deal card objects to player 2
 		i = randomCard();
-		var xP2C1 = dealtRow.insertCell(-1);
+		var xP2C1 = p2DealtRow.insertCell(-1);
 		var imgP2C1 = document.createElement('img');
 		imgP2C1.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
 		xP2C1.appendChild(imgP2C1);
 		removeCard(i);
 
 		i = randomCard();
-		var xP2C2 = dealtRow.insertCell(-1);
+		var xP2C2 = p2DealtRow.insertCell(-1);
 		var imgP2C2 = document.createElement('img');
 		imgP2C2.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
 		xP2C2.appendChild(imgP2C2);
 		removeCard(i);
 
 		i = randomCard();
-		var xP2C3 = dealtRow.insertCell(-1);
+		var xP2C3 = p2DealtRow.insertCell(-1);
 		var imgP2C3 = document.createElement('img');
 		imgP2C3.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
 		xP2C3.appendChild(imgP2C3);
 		removeCard(i);
 
 		i = randomCard();
-		var xP2C4 = dealtRow.insertCell(-1);
+		var xP2C4 = p2DealtRow.insertCell(-1);
 		var imgP2C4 = document.createElement('img');
 		imgP2C4.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
 		xP2C4.appendChild(imgP2C4);
 		removeCard(i);
 
 		i = randomCard();
-		var xP2C5 = dealtRow.insertCell(-1);
+		var xP2C5 = p2DealtRow.insertCell(-1);
 		var imgP2C5 = document.createElement('img');
 		imgP2C5.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
 		xP2C5.appendChild(imgP2C5);
 		removeCard(i);
 
 		i = randomCard();
-		var xP2C6 = dealtRow.insertCell(-1);
+		var xP2C6 = p2DealtRow.insertCell(-1);
 		var imgP2C6 = document.createElement('img');
 		imgP2C6.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
 		xP2C6.appendChild(imgP2C6);
 		removeCard(i);
 
 		  // Player 2's card objects onclick methods
-
 			$(imgP2C1).click(function() {
-				$(imgP2C1).detach().appendTo('#discardPile');
 				p2Hand -= 1;
-				checkState2();
+				if (p2Hand >= 4){
+					$(imgP2C1).detach().appendTo('#discardPile');
+					checkState2();
+				}
+				else if (p2Hand >= 3){
+					$(imgP2C1).detach().appendTo('#playPile');
+					playState2();
+				}
+				else if (p2Hand >= 2){
+					$(imgP2C1).detach().appendTo('#playPile');
+					playState4();
+				}
+				else if (p2Hand >=1){
+					$(imgP2C1).detach().appendTo('#playPile');
+					playState6();
+				}
+				else {
+					$(imgP2C1).detach().appendTo('#playPile');
+					playState8();
+				}
 			});
 
 			$(imgP2C2).click(function() {
-				$(imgP2C2).detach().appendTo('#discardPile');
 				p2Hand -= 1;
-				checkState2();
+				if (p2Hand >= 4){
+					$(imgP2C2).detach().appendTo('#discardPile');
+					checkState2();
+				}
+				else if (p2Hand >= 3){
+					$(imgP2C2).detach().appendTo('#playPile');
+					playState2();
+				}
+				else if (p2Hand >= 2){
+					$(imgP2C2).detach().appendTo('#playPile');
+					playState4();
+				}
+				else if (p2Hand >=1){
+					$(imgP2C2).detach().appendTo('#playPile');
+					playState6();
+				}
+				else {
+					$(imgP2C2).detach().appendTo('#playPile');
+					playState8();
+				}
 			});
 
 			$(imgP2C3).click(function() {
-				$(imgP2C3).detach().appendTo('#discardPile');
 				p2Hand -= 1;
-				checkState2();
+				if (p2Hand >= 4){
+					$(imgP2C3).detach().appendTo('#discardPile');
+					checkState2();
+				}
+				else if (p2Hand >= 3){
+					$(imgP2C3).detach().appendTo('#playPile');
+					playState2();
+				}
+				else if (p2Hand >= 2){
+					$(imgP2C3).detach().appendTo('#playPile');
+					playState4();
+				}
+				else if (p2Hand >=1){
+					$(imgP2C3).detach().appendTo('#playPile');
+					playState6();
+				}
+				else {
+					$(imgP2C3).detach().appendTo('#playPile');
+					playState8();
+				}
 			});
 
 			$(imgP2C4).click(function() {
-				$(imgP2C4).detach().appendTo('#discardPile');
 				p2Hand -= 1;
-				checkState2();
+				if (p2Hand >= 4){
+					$(imgP2C4).detach().appendTo('#discardPile');
+					checkState2();
+				}
+				else if (p2Hand >= 3){
+					$(imgP2C4).detach().appendTo('#playPile');
+					playState2();
+				}
+				else if (p2Hand >= 2){
+					$(imgP2C4).detach().appendTo('#playPile');
+					playState4();
+				}
+				else if (p2Hand >=1){
+					$(imgP2C4).detach().appendTo('#playPile');
+					playState6();
+				}
+				else {
+					$(imgP2C4).detach().appendTo('#playPile');
+					playState8();
+				}
 			});
 
 			$(imgP2C5).click(function() {
-				$(imgP2C5).detach().appendTo('#discardPile');
 				p2Hand -= 1;
-				checkState2();
+				if (p2Hand >= 4){
+					$(imgP2C5).detach().appendTo('#discardPile');
+					checkState2();
+				}
+				else if (p2Hand >= 3){
+					$(imgP2C5).detach().appendTo('#playPile');
+					playState2();
+				}
+				else if (p2Hand >= 2){
+					$(imgP2C5).detach().appendTo('#playPile');
+					playState4();
+				}
+				else if (p2Hand >=1){
+
+					$(imgP2C5).detach().appendTo('#playPile');
+					playState6();
+				}
+				else {
+					$(imgP2C5).detach().appendTo('#playPile');
+					playState8();
+				}
 			});
 
 			$(imgP2C6).click(function() {
-				$(imgP2C6).detach().appendTo('#discardPile');
 				p2Hand -= 1;
-				checkState2();
+				if (p2Hand >= 4){
+					$(imgP2C6).detach().appendTo('#discardPile');
+					checkState2();
+				}
+				else if (p2Hand >= 3){
+					$(imgP2C6).detach().appendTo('#playPile');
+					playState2();
+				}
+				else if (p2Hand >= 2){
+					$(imgP2C6).detach().appendTo('#playPile');
+					playState4();
+				}
+				else if (p2Hand >=1){
+					$(imgP2C6).detach().appendTo('#playPile');
+					playState6();
+				}
+				else {
+					$(imgP2C6).detach().appendTo('#playPile');
+					playState8();
+				}
 			});
 	alert("\n\nPlayer Two: please discard two cards.");
 	checkState2();
+
+	function checkState2() {
+		if (p2Hand>=5){
+			checkState2();
+		}
+		else if(p2Hand==4) {
+			alert("\n\nPlayer One: Choose a Card to Play!");
+			document.getElementById('p1DealtPile').lastChild.style.visibility='visible';
+			document.getElementById('p2DealtPile').lastChild.style.visibility='hidden';
+			playState1();
+		}
+
+		function playState1() {
+			if (p1Hand >=4){
+				playState1()
+			}
+			else if(p1Hand == 3){
+				alert("\n\nPlayer Two: Choose a Card to Play!");
+				document.getElementById('p1DealtPile').lastChild.style.visibility='hidden';
+				document.getElementById('p2DealtPile').lastChild.style.visibility='visible';
+				playState2();
+			}
+
+			function playState2() {
+				if (p2Hand >=4){
+					playState2()
+				}
+				else if (p2Hand == 3) {
+					alert("\n\nPlayer One: Choose a Card to Play!");
+					document.getElementById('p1DealtPile').lastChild.style.visibility='visible';
+					document.getElementById('p2DealtPile').lastChild.style.visibility='hidden';
+					playState3();
+				}
+
+				function playState3() {
+					if (p1Hand >=3){
+						playState3()
+					}
+					else if(p1Hand == 2){
+						alert("\n\nPlayer Two: Choose a Card to Play!");
+						document.getElementById('p1DealtPile').lastChild.style.visibility='hidden';
+						document.getElementById('p2DealtPile').lastChild.style.visibility='visible';
+						playState4();
+				}
+
+				function playState4() {
+					if (p2Hand >=3){
+						playState4()
+					}
+					else if(p2Hand == 2){
+						alert("\n\nPlayer One: Choose a Card to Play!");
+						document.getElementById('p1DealtPile').lastChild.style.visibility='visible';
+						document.getElementById('p2DealtPile').lastChild.style.visibility='hidden';
+						playState5();
+				}
+
+				function playState5() {
+					if (p1Hand >=2){
+						playState5()
+					}
+					else if(p1Hand == 1){
+						alert("\n\nPlayer Two: Choose a Card to Play!");
+						document.getElementById('p1DealtPile').lastChild.style.visibility='hidden';
+						document.getElementById('p2DealtPile').lastChild.style.visibility='visible';
+						playState6();
+					}
+
+					function playState6() {
+						if (p2Hand >=2){
+							playState6()
+						}
+						else if(p2Hand == 1){
+							alert("\n\nPlayer One: Play your Last Card!");
+							document.getElementById('p1DealtPile').lastChild.style.visibility='visible';
+							document.getElementById('p2DealtPile').lastChild.style.visibility='hidden';
+							playState7();
+						}
+
+						function playState7() {
+							if (p1Hand > 0 ){
+								playState7()
+							}
+							else if(p1Hand == 0){
+								alert("\n\nPlayer Two: Play your Last Card!");
+								document.getElementById('p1DealtPile').lastChild.style.visibility='hidden';
+								document.getElementById('p2DealtPile').lastChild.style.visibility='visible';
+								playState8();
+							}
+
+							function playState8() {
+								if (p2Hand > 0 ){
+									playState8()
+								}
+								else if(p2Hand == 0){
+									alert("\n\n!!!! ANNNDD THE WINNER IS !!!!");
+									document.write('Player 1, because i said so');
+								}
+							}
+						}
+					}
+				}
+				}
+			}
+		}
+	}
+ }
+}
 }
 }
 </script>
@@ -294,17 +601,21 @@ function generateP2Cards() {
 <body>
  <button id="startbutton" type="button" onclick="startPlaying()">Start Playing</button>
 
- <br>
 
- <div class="p1Hand"></div>
- <div class="p2Hand"></div>
+<table id="p1DealtPile">
+<th>
+</th>
+</table>
 
- <br>
+<table id="p2DealtPile">
+<th>
+</th>
+</table>
 
- <table id="dealtPile">
-	 <th>
-	 </th>
- </table>
+<table id="playPile">
+	<th>
+	</th>
+</table>
 
  <br>
  <br>
@@ -313,14 +624,9 @@ function generateP2Cards() {
 	 <th>
 	 </th>
  </table>
+
  <br>
  <br>
-
- <table id="hiddenPile">
-	<th>
-	</th>
- </table>
-
 
 </body>
 </html>
