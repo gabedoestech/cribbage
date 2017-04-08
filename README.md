@@ -6,3 +6,6 @@ Update 1:
 - Start screen "Start Game" button works. 
 - End turn toggles between Player 1 and Player 2 works.
 
+Update 2:
+- Image overlay for cards in hand works. 
+- Board centered with overlay coordinates. 
