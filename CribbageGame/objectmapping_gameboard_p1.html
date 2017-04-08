@@ -7,7 +7,7 @@
     <title>Profile Information</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="main2.css">
+    <link rel="stylesheet" href="main.css">
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -19,36 +19,57 @@
 
 <body>
 
-    <!-- Source image used for image mapping -->
-    <center><img id="Image-Maps-Com-image-maps-2017-04-07-233706" src="gameboard-p1.png"
+    <!-- Manipulate cards on hand -->
+    <center><div class="background">
+        <img id="Image-Maps-Com-image-maps-2017-04-07-233706" src="gameboard-p1.png"
         border="0" width="1514" height="805" orgWidth="1514" orgHeight="805" usemap="#image-maps-2017-04-07-233706" alt="" /><center>
+
+            <!-- First card -->
+            <div style="position:absolute; top:608px; left:394px;" class="overlay1">
+                <img src="cards/c2.png">
+            </div>
+
+             <!-- Second card -->
+            <div style="position:absolute; top:608px; left:520px;" class="overlay2">
+                <img src="cards/c3.png">
+            </div>
+
+             <!-- Third card -->
+            <div style="position:absolute; top:608px; left:648px;" class="overlay3">
+                <img src="cards/ck.png">
+            </div>
+
+             <!-- Fourth card -->
+            <div style="position:absolute; top:608px; left:776px;" class="overlay4">
+                <img src="cards/h6.png">
+            </div>
+
+             <!-- Fifth card -->
+            <div style="position:absolute; top:608px; left:904px;" class="overlay5">
+                <img src="cards/sq.png">
+            </div>
+
+             <!-- Sixth card -->
+            <div style="position:absolute; top:608px; left:1032px;" class="overlay6">
+                <img src="cards/h4.png">
+            </div>
+    </div></center>
+    
 
     <!-- Image mapping begins here -->
     <map name="image-maps-2017-04-07-233706" id="ImageMapsCom-image-maps-2017-04-07-233706">
-    <mytag><area  alt="" id="ch1" title="card1-hand" href="#" shape="rect" coords="359,608,481,786" style="outline:none;" target="_self"/></mytag>
-    <area  alt="" id="ch2" title="card2-hand" href="http://www.image-maps.com/" shape="rect" coords="484,608,608,784" style="outline:none;" target="_self"/>
-    <area  alt="" id="ch3" title="card2-hand" href="http://www.image-maps.com/" shape="rect" coords="612,608,737,786" style="outline:none;" target="_self"/>
-    <area  alt="" id="ch4" title="card4-hand" href="http://www.image-maps.com/" shape="rect" coords="739,608,866,785" style="outline:none;" target="_self"/>
-    <area  alt="" id="ch5" title="card5-hand" href="http://www.image-maps.com/" shape="rect" coords="867,608,993,785" style="outline:none;" target="_self"/>
-    <area  alt="" id="ch6" title="card6-hand" href="http://www.image-maps.com/" shape="rect" coords="994,608,1120,785" style="outline:none;" target="_self"/>
-    <area  alt="" id="pt7" title="player-toggle-button" href="http://www.image-maps.com/" shape="rect" coords="28,624,228,679" style="outline:none;" target="_self"/>
+    <area  alt="" id="ch1" title="card1-hand" href="#" shape="rect" coords="359,608,481,786" style="outline:none;" target="_self"/>
+    <area  alt="" id="ch2" title="card2-hand" href="#" shape="rect" coords="484,608,608,784" style="outline:none;" target="_self"/>
+    <area  alt="" id="ch3" title="card2-hand" href="#" shape="rect" coords="612,608,737,786" style="outline:none;" target="_self"/>
+    <area  alt="" id="ch4" title="card4-hand" href="#" shape="rect" coords="739,608,866,785" style="outline:none;" target="_self"/>
+    <area  alt="" id="ch5" title="card5-hand" href="#" shape="rect" coords="867,608,993,785" style="outline:none;" target="_self"/>
+    <area  alt="" id="ch6" title="card6-hand" href="#" shape="rect" coords="994,608,1120,785" style="outline:none;" target="_self"/>
+    <area  alt="" id="pt7" title="player-toggle-button" href="#" shape="rect" coords="28,624,228,679" style="outline:none;" target="_self"/>
     <area  alt="" id="et8" title="end-turn-button" href="objectmapping_gameboard _p2.html" shape="rect" coords="27,717,227,772" style="outline:none;" target="_self"/>
-    <area  alt="" id="sp1" title="score-player-1" href="http://www.image-maps.com/" shape="rect" coords="1375,672,1448,706" style="outline:none;" target="_self"/>
-    <area  alt="" id="sp2" title="player2-score" href="http://www.image-maps.com/" shape="rect" coords="1375,710,1448,744" style="outline:none;" target="_self"/>
+    <area  alt="" id="sp1" title="score-player-1" href="#" shape="rect" coords="1375,672,1448,706" style="outline:none;" target="_self"/>
+    <area  alt="" id="sp2" title="player2-score" href="#" shape="rect" coords="1375,710,1448,744" style="outline:none;" target="_self"/>
     <area shape="rect" coords="1512,803,1514,805" alt="Image Map" style="outline:none;" title="Image Map" href="http://www.image-maps.com/index.php?aff=mapped_users_0"/>
     </map>
-
-    <div class="container ">
-
-    </div>
-
-     <!-- Turn change -->
-     
-
-    <!-- Make cards on hand appear and reappear with permanent overlay. -->
-    http://jsfiddle.net/2ujzT/1/
-
-    <!-- End Turn -->
 
     <!-- Score Changer --> 
 
