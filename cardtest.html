@@ -1,7 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+table{
+	width: 1100px;
+	height:175px;
+	table-layout:fixed;
+}
+td {
+	height:175px;
+	width:130px;
 
+}
+</style>
 	<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 	<script>
 
@@ -10,7 +21,6 @@ var valCardsInDeck = new Array();
 var numberOfCardsInDeck = 52;
 var p1Hand = 6;
 var p2Hand = 6;
-
 
 for (i = 0; i <= 8; i++){
 	cardsInDeck[i] = ("c"+(i+2));
@@ -94,6 +104,7 @@ function startPlaying() {
 	var discardRow = document.getElementById("discardPile").rows[0];
 	var playRow = document.getElementById("playPile").rows[0];
 
+	document.getElementById('discardPile').style.visibility='hidden';
 	// create and deal card objects to player 1
 	i = randomCard();
 	var xP1C1=p1DealtRow.insertCell(-1);
@@ -225,7 +236,7 @@ function startPlaying() {
 			$(imgP1C4).detach().appendTo('#playPile');
 			playState3();
 		}
-		else if (p1Hand >=1){
+		else if (p1Hand >=1) {
 			$(imgP1C4).detach().appendTo('#playPile');
 			playState5();
 		}
@@ -294,7 +305,7 @@ function checkState() {
 		document.getElementById('p1DealtPile').lastChild.style.visibility='hidden';
 		generateP2Cards();
 	}
-
+}
 function generateP2Cards() {
 
 		// create and deal card objects to player 2
@@ -452,7 +463,6 @@ function generateP2Cards() {
 					playState4();
 				}
 				else if (p2Hand >=1){
-
 					$(imgP2C5).detach().appendTo('#playPile');
 					playState6();
 				}
@@ -487,7 +497,7 @@ function generateP2Cards() {
 			});
 	alert("\n\nPlayer Two: please discard two cards.");
 	checkState2();
-
+}
 	function checkState2() {
 		if (p2Hand>=5){
 			checkState2();
@@ -498,10 +508,10 @@ function generateP2Cards() {
 			document.getElementById('p2DealtPile').lastChild.style.visibility='hidden';
 			playState1();
 		}
-
+	}
 		function playState1() {
 			if (p1Hand >=4){
-				playState1()
+				playState1();
 			}
 			else if(p1Hand == 3){
 				alert("\n\nPlayer Two: Choose a Card to Play!");
@@ -509,10 +519,10 @@ function generateP2Cards() {
 				document.getElementById('p2DealtPile').lastChild.style.visibility='visible';
 				playState2();
 			}
-
+		}
 			function playState2() {
 				if (p2Hand >=4){
-					playState2()
+					playState2();
 				}
 				else if (p2Hand == 3) {
 					alert("\n\nPlayer One: Choose a Card to Play!");
@@ -520,10 +530,10 @@ function generateP2Cards() {
 					document.getElementById('p2DealtPile').lastChild.style.visibility='hidden';
 					playState3();
 				}
-
+}
 				function playState3() {
 					if (p1Hand >=3){
-						playState3()
+						playState3();
 					}
 					else if(p1Hand == 2){
 						alert("\n\nPlayer Two: Choose a Card to Play!");
@@ -531,10 +541,10 @@ function generateP2Cards() {
 						document.getElementById('p2DealtPile').lastChild.style.visibility='visible';
 						playState4();
 				}
-
+}
 				function playState4() {
 					if (p2Hand >=3){
-						playState4()
+						playState4();
 					}
 					else if(p2Hand == 2){
 						alert("\n\nPlayer One: Choose a Card to Play!");
@@ -542,10 +552,10 @@ function generateP2Cards() {
 						document.getElementById('p2DealtPile').lastChild.style.visibility='hidden';
 						playState5();
 				}
-
+}
 				function playState5() {
 					if (p1Hand >=2){
-						playState5()
+						playState5();
 					}
 					else if(p1Hand == 1){
 						alert("\n\nPlayer Two: Choose a Card to Play!");
@@ -553,10 +563,10 @@ function generateP2Cards() {
 						document.getElementById('p2DealtPile').lastChild.style.visibility='visible';
 						playState6();
 					}
-
+}
 					function playState6() {
 						if (p2Hand >=2){
-							playState6()
+							playState6();
 						}
 						else if(p2Hand == 1){
 							alert("\n\nPlayer One: Play your Last Card!");
@@ -564,10 +574,10 @@ function generateP2Cards() {
 							document.getElementById('p2DealtPile').lastChild.style.visibility='hidden';
 							playState7();
 						}
-
+}
 						function playState7() {
 							if (p1Hand > 0 ){
-								playState7()
+								playState7();
 							}
 							else if(p1Hand == 0){
 								alert("\n\nPlayer Two: Play your Last Card!");
@@ -575,54 +585,33 @@ function generateP2Cards() {
 								document.getElementById('p2DealtPile').lastChild.style.visibility='visible';
 								playState8();
 							}
-
+}
 							function playState8() {
 								if (p2Hand > 0 ){
-									playState8()
+									playState8();
 								}
 								else if(p2Hand == 0){
-									alert("\n\n!!!! ANNNDD THE WINNER IS !!!!");
-									document.write('Player 1, because i said so');
+									document.write('\nPlayer 1 WINS!!!, because i said so\n');
 								}
 							}
-						}
-					}
-				}
-				}
-			}
-		}
-	}
- }
-}
-}
-}
+						} // end generare cards
+
 </script>
 </head>
 <body>
  <button id="startbutton" type="button" onclick="startPlaying()">Start Playing</button>
 
 
-<table id="p1DealtPile">
-<th>
-</th>
+<table id="p1DealtPile"><th/>
 </table>
 
-<table id="p2DealtPile">
-<th>
-</th>
+<table id="p2DealtPile"><th/>
 </table>
 
-<table id="playPile">
-	<th>
-	</th>
+<table id="playPile" width="1100" height="175">
 </table>
 
- <br>
- <br>
-
- <table id="discardPile">
-	 <th>
-	 </th>
+ <table id="discardPile" width="1100" height="175">
  </table>
 
  <br>
