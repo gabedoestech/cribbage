@@ -4,80 +4,370 @@
 <html>
 
 <head>
-    <title>Profile Information</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="main.css">
+	<title>Profile Information</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="main.css">
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-    
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
 </head>
 
 <body>
+	<!--BUG: When window is NOT maximized cards scramble. -->
+	<!--BUG: When you minimize and maximize in zoom cards scramble.-->
+	<!--Make sure WINDOW IS AT 100% zoom! -->
+	<!-- Manipulate of cards -->
+	<center>
+		<div class="background">
+			<img id="Image-Maps-Com-image-maps-2017-04-07-233706" src="boards/gameboard-p2-missing_hand_and_field.png" border="0" width="1514" height="805" orgWidth="1514"
+				orgHeight="805" usemap="#image-maps-2017-04-07-233706" alt="" />
+	</center>
 
-    <!-- Manipulate cards on hand -->
-    <center><div class="background">
-        <img id="Image-Maps-Com-image-maps-2017-04-07-233706" src="gameboard-p2.png"
-        border="0" width="1514" height="805" orgWidth="1514" orgHeight="805" usemap="#image-maps-2017-04-07-233706" alt="" /><center>
+	<!-- Put cards in hand -->
+	<div style="position:absolute; top:608px; left:394px;" class="handcard1">
+		<img src="cards/c2.png">
+	</div>
 
-            <!-- First card -->
-            <div style="position:absolute; top:608px; left:394px;" class="overlay1">
-                <img src="cards/c2.png">
-            </div>
+	<div style="position:absolute; top:608px; left:520px;" class="handcard2">
+		<img src="cards/c3.png">
+	</div>
 
-             <!-- Second card -->
-            <div style="position:absolute; top:608px; left:520px;" class="overlay2">
-                <img src="cards/c3.png">
-            </div>
+	<div style="position:absolute; top:608px; left:648px;" class="handcard3">
+		<img src="cards/ck.png">
+	</div>
 
-             <!-- Third card -->
-            <div style="position:absolute; top:608px; left:648px;" class="overlay3">
-                <img src="cards/ck.png">
-            </div>
+	<div style="position:absolute; top:608px; left:776px;" class="handcard4">
+		<img src="cards/h6.png">
+	</div>
 
-             <!-- Fourth card -->
-            <div style="position:absolute; top:608px; left:776px;" class="overlay4">
-                <img src="cards/h6.png">
-            </div>
+	<div style="position:absolute; top:608px; left:904px;" class="handcard5">
+		<img src="cards/sq.png">
+	</div>
 
-             <!-- Fifth card -->
-            <div style="position:absolute; top:608px; left:904px;" class="overlay5">
-                <img src="cards/sq.png">
-            </div>
+	<div style="position:absolute; top:608px; left:1032px;" class="handcard6">
+		<img src="cards/h4.png">
+	</div>
 
-             <!-- Sixth card -->
-            <div style="position:absolute; top:608px; left:1032px;" class="overlay6">
-                <img src="cards/h4.png">
-            </div>
-    </div></center>
-    
+	<!-- Put cards on playing field -->
+	<div style="position:absolute; top:31px; left:486px;" class="playingfieldcard1">
+		<img src="cards/d5.png">
+	</div>
 
-    <!-- Image mapping begins here -->
-    <map name="image-maps-2017-04-07-233706" id="ImageMapsCom-image-maps-2017-04-07-233706">
-    <area  alt="" id="ch1" title="card1-hand" href="#" shape="rect" coords="359,608,481,786" style="outline:none;" target="_self"/>
-    <area  alt="" id="ch2" title="card2-hand" href="#" shape="rect" coords="484,608,608,784" style="outline:none;" target="_self"/>
-    <area  alt="" id="ch3" title="card2-hand" href="#" shape="rect" coords="612,608,737,786" style="outline:none;" target="_self"/>
-    <area  alt="" id="ch4" title="card4-hand" href="#" shape="rect" coords="739,608,866,785" style="outline:none;" target="_self"/>
-    <area  alt="" id="ch5" title="card5-hand" href="#" shape="rect" coords="867,608,993,785" style="outline:none;" target="_self"/>
-    <area  alt="" id="ch6" title="card6-hand" href="#" shape="rect" coords="994,608,1120,785" style="outline:none;" target="_self"/>
-    <area  alt="" id="pt7" title="player-toggle-button" href="#" shape="rect" coords="28,624,228,679" style="outline:none;" target="_self"/>
-    <area  alt="" id="et8" title="end-turn-button" href="objectmapping_gameboard_p1.html" shape="rect" coords="27,717,227,772" style="outline:none;" target="_self"/>
-    <area  alt="" id="sp1" title="score-player-1" href="#" shape="rect" coords="1375,672,1448,706" style="outline:none;" target="_self"/>
-    <area  alt="" id="sp2" title="player2-score" href="#" shape="rect" coords="1375,710,1448,744" style="outline:none;" target="_self"/>
-    <area shape="rect" coords="1512,803,1514,805" alt="Image Map" style="outline:none;" title="Image Map" href="http://www.image-maps.com/index.php?aff=mapped_users_0"/>
-    </map>
+	<div style="position:absolute; top:70px; left:567px;" class="playingfieldcard2">
+		<img src="cards/ck.png">
+	</div>
 
-    <!-- Score Changer --> 
+	<div style="position:absolute; top:31px; left:637px;" class="playingfieldcard3">
+		<img src="cards/dj.png">
+	</div>
 
-    <!-- Playing Field Card Changer -->
+	<div style="position:absolute; top:70px; left:718px;" class="playingfieldcard4">
+		<img src="cards/d3.png">
+	</div>
 
-    
+	<div style="position:absolute; top:31px; left:795px;" class="playingfieldcard5">
+		<img src="cards/hq.png">
+	</div>
+
+	<div style="position:absolute; top:70px; left:871px;" class="playingfieldcard6">
+		<img src="cards/ca.png">
+	</div>
+
+	<div style="position:absolute; top:31px; left:948px;" class="playingfieldcard7">
+		<img src="cards/d7.png">
+	</div>
+
+	<div style="position:absolute; top:70px; left:1022px;" class="playingfieldcard8">
+		<img src="cards/c9.png">
+	</div>
+
+	<!-- Pegs on playing field...TO BE CONTINUED...-->
+	<div style="position:absolute; top:474px; left:1235px;" class="playingfieldcard8">
+		<img src="boards/red-peg.png">
+	</div>
+
+	<!-- Scoreboard score fields --> 
+	
+	</div>
+
+	<!-- Image mapping begins here -->
+	<!-- Main buttons and hand cards !-->
+	<map name="image-maps-2017-04-07-233706" id="ImageMapsCom-image-maps-2017-04-07-233706">
+		<area  alt="" id="ch1" title="card1-hand" href="#" shape="rect" coords="359,608,481,786" style="outline:none;" target="_self"/>
+		<area  alt="" id="ch2" title="card2-hand" href="#" shape="rect" coords="484,608,608,784" style="outline:none;" target="_self"/>
+		<area  alt="" id="ch3" title="card2-hand" href="#" shape="rect" coords="612,608,737,786" style="outline:none;" target="_self"/>
+		<area  alt="" id="ch4" title="card4-hand" href="#" shape="rect" coords="739,608,866,785" style="outline:none;" target="_self"/>
+		<area  alt="" id="ch5" title="card5-hand" href="#" shape="rect" coords="867,608,993,785" style="outline:none;" target="_self"/>
+		<area  alt="" id="ch6" title="card6-hand" href="#" shape="rect" coords="994,608,1120,785" style="outline:none;" target="_self"/>
+		<area  alt="" id="pt7" title="player-toggle-button" href="#" shape="rect" coords="28,624,228,679" style="outline:none;" target="_self"/>
+		<area  alt="" id="et8" title="end-turn-button" href="objectmapping_gameboard_p1.html" shape="rect" coords="27,717,227,772" style="outline:none;" target="_self"/>
+		<area  alt="" id="sp1" title="score-player-1" href="#" shape="rect" coords="1375,672,1448,706" style="outline:none;" target="_self"/>
+		<area  alt="" id="sp2" title="player2-score" href="#" shape="rect" coords="1375,710,1448,744" style="outline:none;" target="_self"/>
+		<area shape="rect" coords="1512,803,1514,805" alt="Image Map" style="outline:none;" title="Image Map" href="#"/>
+		
+		<!-- Playing field cards and deck overlay -->
+		<area  alt="" title="playingfield-card1" href="#" shape="rect" coords="450,30,573,207" style="outline:none;" target="_self"/>
+		<area  alt="" title="playingfield-card2" href="#" shape="rect" coords="532,62,655,239" style="outline:none;" target="_self"/>
+		<area  alt="" title="playingfield-card3" href="#" shape="rect" coords="602,31,725,208" style="outline:none;" target="_self"/>
+		<area  alt="" title="playingfield-card4" href="#" shape="rect" coords="683,61,806,238" style="outline:none;" target="_self"/>
+		<area  alt="" title="playingfield-card5" href="#" shape="rect" coords="759,37,882,214" style="outline:none;" target="_self"/>
+		<area  alt="" title="playingfield-card6" href="#" shape="rect" coords="836,62,959,239" style="outline:none;" target="_self"/>
+		<area  alt="" title="playingfield-card7" href="#" shape="rect" coords="912,30,1035,207" style="outline:none;" target="_self"/>
+		<area  alt="" title="playingfield-card8" href="#" shape="rect" coords="987,62,1110,239" style="outline:none;" target="_self"/>
+		<area  alt="" title="deck-overlay" href="#" shape="rect" coords="1363,72,1484,244" style="outline:none;" target="_self"/>
+
+		<!-- Pegs -->
+		<area  alt="" title="circle-dark-set1-1" href="#" shape="rect" coords="1204,477,1229,503" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set1-2" href="#" shape="rect" coords="1179,477,1204,503" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set1-3" href="#" shape="rect" coords="1155,477,1180,503" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set1-4" href="#" shape="rect" coords="1130,477,1155,503" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set1-5" href="#" shape="rect" coords="1105,477,1130,503" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set2-1" href="#" shape="rect" coords="1070,476,1095,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set2-2" href="#" shape="rect" coords="1045,476,1070,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set3-3" href="#" shape="rect" coords="1020,476,1045,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set3-4" href="#" shape="rect" coords="995,476,1020,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set2-5" href="#" shape="rect" coords="970,476,995,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set3-1" href="#" shape="rect" coords="938,476,963,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set3-2" href="#" shape="rect" coords="914,476,939,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set3-3" href="#" shape="rect" coords="890,476,915,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set3-4" href="#" shape="rect" coords="865,476,890,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set3-5" href="#" shape="rect" coords="840,476,865,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set4-1" href="#" shape="rect" coords="806,476,831,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set4-2" href="#" shape="rect" coords="782,476,807,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set4-3" href="#" shape="rect" coords="758,476,783,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set4-4" href="#" shape="rect" coords="733,476,758,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set4-5" href="#" shape="rect" coords="707,476,732,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set5-1" href="#" shape="rect" coords="674,476,699,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set5-2" href="#" shape="rect" coords="650,476,675,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set5-3" href="#" shape="rect" coords="625,476,650,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set5-4" href="#" shape="rect" coords="600,476,625,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set5-5" href="#" shape="rect" coords="575,476,600,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set6-1" href="#" shape="rect" coords="545,476,570,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set6-2" href="#" shape="rect" coords="520,476,545,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set6-3" href="#" shape="rect" coords="495,476,520,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set6-4" href="#" shape="rect" coords="469,476,494,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set6-5" href="#" shape="rect" coords="446,476,471,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set7-1" href="#" shape="rect" coords="415,476,440,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set7-2" href="#" shape="rect" coords="390,476,415,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set7-3" href="#" shape="rect" coords="364,476,389,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set7-4" href="#" shape="rect" coords="341,476,366,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set7-5" href="#" shape="rect" coords="315,476,340,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set8-1" href="#" shape="rect" coords="276,476,301,502" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set8-5" href="#" shape="rect" coords="276,416,300,442" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set9-1" href="#" shape="rect" coords="315,416,339,442" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set9-2" href="#" shape="rect" coords="340,416,364,442" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set9-3" href="#" shape="rect" coords="364,416,388,442" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set9-4" href="#" shape="rect" coords="389,416,413,442" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set9-5" href="#" shape="rect" coords="412,416,436,442" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set10-1" href="#" shape="rect" coords="445,417,469,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set10-2" href="#" shape="rect" coords="468,417,492,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set10-3" href="#" shape="rect" coords="493,417,517,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set10-4" href="#" shape="rect" coords="517,417,541,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set10-5" href="#" shape="rect" coords="542,417,566,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set11-1" href="#" shape="rect" coords="574,417,598,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set11-2" href="#" shape="rect" coords="599,417,623,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set11-3" href="#" shape="rect" coords="623,417,647,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set11-4" href="#" shape="rect" coords="648,417,672,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set11-5" href="#" shape="rect" coords="672,417,696,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set12-1" href="#" shape="rect" coords="708,417,732,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set12-2" href="#" shape="rect" coords="732,417,756,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set12-3" href="#" shape="rect" coords="755,417,779,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set12-4" href="#" shape="rect" coords="779,417,803,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set12-5" href="#" shape="rect" coords="803,417,827,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set13-1" href="#" shape="rect" coords="838,417,862,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set13-2" href="#" shape="rect" coords="862,417,886,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set13-3" href="#" shape="rect" coords="887,417,911,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set13-4" href="#" shape="rect" coords="911,417,935,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set13-5" href="#" shape="rect" coords="936,417,960,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set14-1" href="#" shape="rect" coords="970,417,994,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set14-2" href="#" shape="rect" coords="994,417,1018,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set14-3" href="#" shape="rect" coords="1018,417,1042,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set14-4" href="#" shape="rect" coords="1042,417,1066,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set14-5" href="#" shape="rect" coords="1066,417,1090,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set15-1" href="#" shape="rect" coords="1104,417,1128,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set15-2" href="#" shape="rect" coords="1128,417,1152,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set15-3" href="#" shape="rect" coords="1152,417,1176,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set15-4" href="#" shape="rect" coords="1176,417,1200,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set15-5" href="#" shape="rect" coords="1200,417,1224,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set16-1" href="#" shape="rect" coords="1240,417,1264,443" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set16-5" href="#" shape="rect" coords="1239,301,1263,327" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set17-1" href="#" shape="rect" coords="1202,301,1226,327" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set17-2" href="#" shape="rect" coords="1177,301,1201,327" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set17-3" href="#" shape="rect" coords="1153,301,1177,327" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set17-4" href="#" shape="rect" coords="1129,301,1153,327" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set17-5" href="#" shape="rect" coords="1105,301,1129,327" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set18-1" href="#" shape="rect" coords="1067,302,1091,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set18-2" href="#" shape="rect" coords="1043,302,1067,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set18-3" href="#" shape="rect" coords="1019,302,1043,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set18-4" href="#" shape="rect" coords="995,302,1019,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set18-5" href="#" shape="rect" coords="972,302,996,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set19-1" href="#" shape="rect" coords="935,302,959,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set19-2" href="#" shape="rect" coords="911,302,935,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set19-3" href="#" shape="rect" coords="887,302,911,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set19-4" href="#" shape="rect" coords="863,302,887,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set19-5" href="#" shape="rect" coords="840,302,864,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set20-1" href="#" shape="rect" coords="803,302,827,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set20-2" href="#" shape="rect" coords="780,302,804,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set20-3" href="#" shape="rect" coords="756,302,780,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set20-4" href="#" shape="rect" coords="732,302,756,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set20-5" href="#" shape="rect" coords="709,302,733,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set21-1" href="#" shape="rect" coords="672,302,696,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set20-2" href="#" shape="rect" coords="648,302,672,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set20-3" href="#" shape="rect" coords="624,302,648,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set20-4" href="#" shape="rect" coords="600,302,624,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set20-5" href="#" shape="rect" coords="577,302,601,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set22-1" href="#" shape="rect" coords="541,302,565,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set22-2" href="#" shape="rect" coords="518,302,542,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set22-3" href="#" shape="rect" coords="495,302,519,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set22-4" href="#" shape="rect" coords="471,302,495,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set22-5" href="#" shape="rect" coords="447,302,471,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set23-1" href="#" shape="rect" coords="411,302,435,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set23-2" href="#" shape="rect" coords="387,302,411,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set23-3" href="#" shape="rect" coords="363,302,387,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set23-5" href="#" shape="rect" coords="316,302,340,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set24-1" href="#" shape="rect" coords="280,302,304,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set24-2" href="#" shape="rect" coords="257,302,281,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set24-3" href="#" shape="rect" coords="233,302,257,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set23-4" href="#" shape="rect" coords="208,302,232,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set24-5" href="#" shape="rect" coords="183,302,207,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set25-1" href="#" shape="rect" coords="132,302,156,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set1-1" href="#" shape="rect" coords="1201,506,1228,528" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set1-2" href="#" shape="rect" coords="1177,506,1204,528" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set1-3" href="#" shape="rect" coords="1151,506,1178,528" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set1-4" href="#" shape="rect" coords="1126,506,1153,528" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set1-5" href="#" shape="rect" coords="1103,506,1130,528" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set2-1" href="#" shape="rect" coords="1068,506,1095,528" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set2-2" href="#" shape="rect" coords="1043,506,1070,528" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set2-3" href="#" shape="rect" coords="1020,506,1047,528" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set2-4" href="#" shape="rect" coords="996,506,1023,528" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set2-5" href="#" shape="rect" coords="969,506,996,528" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set3-1" href="#" shape="rect" coords="936,506,963,528" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set3-2" href="#" shape="rect" coords="913,506,940,528" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set3-3" href="#" shape="rect" coords="890,506,917,528" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set3-4" href="#" shape="rect" coords="864,506,891,528" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set23-4" href="#" shape="rect" coords="340,302,364,328" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set25-4" href="#" shape="rect" coords="340,301,364,327" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set3-5" href="#" shape="rect" coords="841,506,865,528" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set4-1" href="#" shape="rect" coords="807,505,831,527" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set4-2" href="#" shape="rect" coords="782,505,806,527" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set4-3" href="#" shape="rect" coords="757,505,781,527" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set4-4" href="#" shape="rect" coords="733,505,757,527" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set4-5" href="#" shape="rect" coords="708,505,732,527" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set5-1" href="#" shape="rect" coords="675,505,699,527" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set5-2" href="#" shape="rect" coords="649,505,673,527" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set5-3" href="#" shape="rect" coords="626,505,650,527" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set5-4" href="#" shape="rect" coords="601,505,625,527" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set5-5" href="#" shape="rect" coords="576,505,600,527" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set6-1" href="#" shape="rect" coords="544,505,568,527" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set6-2" href="#" shape="rect" coords="521,505,545,527" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set6-3" href="#" shape="rect" coords="497,505,521,527" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set6-4" href="#" shape="rect" coords="472,505,496,527" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set6-5" href="#" shape="rect" coords="447,505,471,527" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set7-1" href="#" shape="rect" coords="416,505,440,527" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set7-2" href="#" shape="rect" coords="391,505,415,527" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set7-3" href="#" shape="rect" coords="366,505,390,527" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set7-4" href="#" shape="rect" coords="341,505,365,527" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set7-5" href="#" shape="rect" coords="316,505,340,527" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set8-1" href="#" shape="rect" coords="276,505,300,527" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set8-5" href="#" shape="rect" coords="275,391,299,413" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set9-1" href="#" shape="rect" coords="314,391,338,413" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set9-2" href="#" shape="rect" coords="338,391,362,413" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set9-3" href="#" shape="rect" coords="363,391,387,413" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set9-4" href="#" shape="rect" coords="389,391,413,413" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set9-5" href="#" shape="rect" coords="413,391,437,413" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set10-1" href="#" shape="rect" coords="445,391,469,413" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set10-2" href="#" shape="rect" coords="469,391,493,413" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set10-3" href="#" shape="rect" coords="494,391,518,413" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set10-4" href="#" shape="rect" coords="518,391,542,413" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set10-5" href="#" shape="rect" coords="542,391,566,413" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set11-1" href="#" shape="rect" coords="575,391,599,413" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set11-2" href="#" shape="rect" coords="601,391,625,413" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set11-3" href="#" shape="rect" coords="625,391,649,413" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set11-4" href="#" shape="rect" coords="649,391,673,413" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set11-5" href="#" shape="rect" coords="673,391,697,413" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set12-1" href="#" shape="rect" coords="706,392,730,414" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set12-2" href="#" shape="rect" coords="731,392,755,414" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set12-3" href="#" shape="rect" coords="755,392,779,414" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set12-4" href="#" shape="rect" coords="781,392,805,414" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set12-5" href="#" shape="rect" coords="805,392,829,414" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set13-1" href="#" shape="rect" coords="839,392,863,414" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set13-2" href="#" shape="rect" coords="864,392,888,414" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set13-3" href="#" shape="rect" coords="888,392,912,414" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set13-4" href="#" shape="rect" coords="912,392,936,414" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set13-5" href="#" shape="rect" coords="937,392,961,414" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set14-1" href="#" shape="rect" coords="972,392,996,414" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set14-2" href="#" shape="rect" coords="996,392,1020,414" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set14-3" href="#" shape="rect" coords="1020,392,1044,414" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set14-4" href="#" shape="rect" coords="1045,392,1069,414" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set14-5" href="#" shape="rect" coords="1069,392,1093,414" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set15-1" href="#" shape="rect" coords="1104,391,1128,413" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set15-2" href="#" shape="rect" coords="1129,391,1153,413" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set15-3" href="#" shape="rect" coords="1153,391,1177,413" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set15-4" href="#" shape="rect" coords="1177,391,1201,413" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set15-5" href="#" shape="rect" coords="1202,391,1226,413" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set16-1" href="#" shape="rect" coords="1239,391,1263,413" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set16-5" href="#" shape="rect" coords="1237,331,1261,353" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set17-1" href="#" shape="rect" coords="1201,331,1225,353" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set17-2" href="#" shape="rect" coords="1176,331,1200,353" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set17-3" href="#" shape="rect" coords="1151,331,1175,353" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set17-4" href="#" shape="rect" coords="1126,331,1150,353" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set17-5" href="#" shape="rect" coords="1101,331,1125,353" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set18-1" href="#" shape="rect" coords="1069,331,1093,353" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set18-2" href="#" shape="rect" coords="1043,331,1067,353" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set18-3" href="#" shape="rect" coords="1018,331,1042,353" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set18-4" href="#" shape="rect" coords="993,331,1017,353" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set18-5" href="#" shape="rect" coords="969,331,993,353" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set19-1" href="#" shape="rect" coords="935,332,959,354" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set19-2" href="#" shape="rect" coords="911,332,935,354" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set19-3" href="#" shape="rect" coords="887,332,911,354" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set19-4" href="#" shape="rect" coords="862,332,886,354" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set19-5" href="#" shape="rect" coords="837,332,861,354" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set20-1" href="#" shape="rect" coords="804,332,828,354" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set20-2" href="#" shape="rect" coords="779,332,803,354" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set20-3" href="#" shape="rect" coords="754,332,778,354" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set20-4" href="#" shape="rect" coords="729,332,753,354" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set20-5" href="#" shape="rect" coords="705,332,729,354" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set21-1" href="#" shape="rect" coords="672,332,696,354" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set21-2" href="#" shape="rect" coords="646,332,670,354" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set21-3" href="#" shape="rect" coords="622,332,646,354" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set21-4" href="#" shape="rect" coords="598,332,622,354" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set21-5" href="#" shape="rect" coords="573,332,597,354" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set22-1" href="#" shape="rect" coords="541,332,565,354" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set22-3" href="#" shape="rect" coords="517,332,541,354" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set22-3" href="#" shape="rect" coords="492,332,516,354" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set22-4" href="#" shape="rect" coords="467,332,491,354" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set22-5" href="#" shape="rect" coords="443,332,467,354" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set23-1" href="#" shape="rect" coords="412,333,436,355" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set23-2" href="#" shape="rect" coords="386,333,410,355" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set23-3" href="#" shape="rect" coords="361,333,385,355" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set23-4" href="#" shape="rect" coords="339,333,363,355" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set23-5" href="#" shape="rect" coords="313,333,337,355" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set24-1" href="#" shape="rect" coords="278,333,302,355" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set23-2" href="#" shape="rect" coords="254,333,278,355" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set23-3" href="#" shape="rect" coords="229,333,253,355" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set23-4" href="#" shape="rect" coords="206,333,230,355" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set23-5" href="#" shape="rect" coords="182,333,206,355" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set24-1" href="#" shape="rect" coords="132,334,156,356" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set16-3" href="#" shape="rect" coords="1287,361,1311,383" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set16-3" href="#" shape="rect" coords="1317,362,1341,384" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set8-3" href="#" shape="rect" coords="228,448,252,470" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set8-3" href="#" shape="rect" coords="199,449,223,471" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set8-2" href="#" shape="rect" coords="226,498,246,515" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set8-4" href="#" shape="rect" coords="227,403,247,420" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set8-4" href="#" shape="rect" coords="246,423,266,440" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set8-2" href="#" shape="rect" coords="246,476,266,493" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set16-2" href="#" shape="rect" coords="1295,411,1315,428" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-dark-set16-4" href="#" shape="rect" coords="1293,316,1313,333" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set16-2" href="#" shape="rect" coords="1275,390,1295,407" style="outline:none;" target="_self"     />
+		<area  alt="" title="circle-light-set16-4" href="#" shape="rect" coords="1274,336,1294,353" style="outline:none;" target="_self"     />
+		<area shape="rect" coords="1512,803,1514,805" alt="Image Map" style="outline:none;" title="Image Map" href="#" />
+		</map>
 
 </body>
-
 
 </html>
