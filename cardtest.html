@@ -1,154 +1,137 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-table{
-	width: 1100px;
-	height:175px;
-	table-layout:fixed;
+	<style>
+	body {
+    background-image: url('gameBoard.png');
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-attachment: fixed;
 }
-td {
-	height:175px;
-	width:130px;
-
-}
-</style>
+	</style>
 	<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
 	<script>
-
 var cardsInDeck = new Array();
 var valCardsInDeck = new Array();
 var numberOfCardsInDeck = 52;
 var p1Hand = 6;
 var p2Hand = 6;
-
 for (i = 0; i <= 8; i++){
 	cardsInDeck[i] = ("c"+(i+2));
   valCardsInDeck[i+0] = (i+2);
   }
-
 for (i = 9; i <=11; i++ ) {
     valCardsInDeck[i] = 10;
 }
-
   cardsInDeck[9] = "cj";
   cardsInDeck[10] = "cq";
   cardsInDeck[11] = "ck";
   cardsInDeck[12] = "ca";
 	valCardsInDeck[12] = 1;
-
 for (i = 0; i <= 8; i++){
 	cardsInDeck[i+13] = ("d"+(i+2));
   valCardsInDeck[i+13] = (i+2);
   }
-
 for (i = 22; i <= 24; i++ ) {
       valCardsInDeck[i] = 10;
   }
-
   cardsInDeck[22] = "dj";
   cardsInDeck[23] = "dq";
   cardsInDeck[24] = "dk";
   cardsInDeck[25] = "da";
 	valCardsInDeck[25] = 1;
-
-for (i = 0; i <= 8; i++){
+	for (i = 0; i <= 8; i++){
 	cardsInDeck[i+26] = ("h"+(i+2));
-  valCardsInDeck[i+26] = (i+2);
+	valCardsInDeck[i+26] = (i+2);
   }
-
-for (i = 35; i <=37; i++ ){
+	for (i = 35; i <=37; i++ ){
       valCardsInDeck[i] = 10;
-  }
-
-  cardsInDeck[35] = "hj";
-  cardsInDeck[36] = "hq";
-  cardsInDeck[37] = "hk";
-  cardsInDeck[38] = "ha";
+	}
+	cardsInDeck[35] = "hj";
+	cardsInDeck[36] = "hq";
+	cardsInDeck[37] = "hk";
+	cardsInDeck[38] = "ha";
 	valCardsInDeck[38] = 1;
 
-for (i = 0; i <= 8; i++){
+	for (i = 0; i <= 8; i++){
 	cardsInDeck[i+39] = ("s"+(i+2));
   valCardsInDeck[i+39] = (i+2);
   }
 
-for (i = 48; i <=50; i++){
+  for (i = 48; i <=50; i++){
   valCardsInDeck[i] = 10;
   }
-
   cardsInDeck[48] = "sj";
   cardsInDeck[49] = "sq";
   cardsInDeck[50] = "sk";
   cardsInDeck[51] = "sa";
 	valCardsInDeck[51] = 1;
 
-
 function startPlaying() {
 	if (numberOfCardsInDeck == 40) return false;
 	document.getElementById('startbutton').style.visibility = 'hidden';
-
+	
 	function randomCard() {
 		return Math.floor(Math.random() * numberOfCardsInDeck);
 	}
-
+	
 	function removeCard(c) {
 		for (j=c; j <= numberOfCardsInDeck-2; j++) {
 	 		cardsInDeck[j] = cardsInDeck[j+1];
 	  }
 	  numberOfCardsInDeck--;
 	 }
-
+	
 	// make pointers to location of card piles
 	var p1DealtRow = document.getElementById("p1DealtPile").rows[0];
 	var p2DealtRow = document.getElementById("p2DealtPile").rows[0];
 	var discardRow = document.getElementById("discardPile").rows[0];
 	var playRow = document.getElementById("playPile").rows[0];
-
 	document.getElementById('discardPile').style.visibility='hidden';
+	
 	// create and deal card objects to player 1
 	i = randomCard();
 	var xP1C1=p1DealtRow.insertCell(-1);
 	var imgP1C1 = document.createElement('img');
-	imgP1C1.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+	imgP1C1.src="https://www.notdevin.com/f/c10.png";
 	xP1C1.appendChild(imgP1C1);
 	removeCard(i);
-
+	
 	i = randomCard();
 	var xP1C2=p1DealtRow.insertCell(-1);
 	var imgP1C2 = document.createElement('img');
-	imgP1C2.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+	imgP1C2.src="https://www.notdevin.com/f/h10.png";
 	xP1C2.appendChild(imgP1C2);
 	removeCard(i);
-
+	
 	i = randomCard();
 	var xP1C3=p1DealtRow.insertCell(-1);
 	var imgP1C3 = document.createElement('img');
-	imgP1C3.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+	imgP1C3.src="https://www.notdevin.com/f/h9.png";
 	xP1C3.appendChild(imgP1C3);
 	removeCard(i);
-
+	
 	i = randomCard();
 	var xP1C4 = p1DealtRow.insertCell(-1);
 	var imgP1C4 = document.createElement('img');
-	imgP1C4.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+	imgP1C4.src="https://www.notdevin.com/f/s6.png";
 	xP1C4.appendChild(imgP1C4);
 	removeCard(i);
-
+	
 	i = randomCard();
 	var xP1C5 = p1DealtRow.insertCell(-1);
 	var imgP1C5 = document.createElement('img');
-	imgP1C5.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+	imgP1C5.src="https://www.notdevin.com/f/h4.png";
 	xP1C5.appendChild(imgP1C5);
 	removeCard(i);
-
+	
 	i = randomCard();
 	var xP1C6 = p1DealtRow.insertCell(-1);
 	var imgP1C6 = document.createElement('img');
-	imgP1C6.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+	imgP1C6.src="https://www.notdevin.com/f/ha.png";
 	xP1C6.appendChild(imgP1C6);
 	removeCard(i);
-
-
+	
 	// Player 1's card objects onclick methods
 	$(imgP1C1).click(function() {
 		p1Hand -=1;
@@ -173,7 +156,6 @@ function startPlaying() {
 			playState7();
 		}
 	});
-
 	$(imgP1C2).click(function() {
 		p1Hand -=1;
 		if (p1Hand >= 4){
@@ -197,7 +179,6 @@ function startPlaying() {
 			playState7();
 		}
 	});
-
 	$(imgP1C3).click(function() {
 		p1Hand -=1;
 		if (p1Hand >= 4){
@@ -221,7 +202,6 @@ function startPlaying() {
 			playState7();
 		}
 	});
-
 	$(imgP1C4).click(function() {
 		p1Hand -=1;
 		if (p1Hand >= 4){
@@ -245,7 +225,6 @@ function startPlaying() {
 			playState7();
 		}
 	});
-
 	$(imgP1C5).click(function() {
 		p1Hand -=1;
 		if (p1Hand >= 4){
@@ -269,7 +248,6 @@ function startPlaying() {
 			playState7();
 		}
 	});
-
 	$(imgP1C6).click(function() {
 		p1Hand -=1;
 		if (p1Hand >= 4){
@@ -293,67 +271,68 @@ function startPlaying() {
 			playState7();
 		}
 	});
-
-alert("\n\nPlayer One: please discard two cards.");
-checkState();
-
-function checkState() {
-	if (p1Hand>=5){
-		checkState();
+	
+	alert("\n\nPlayer One: please discard two cards.");
+	checkState();
+	
+	function checkState() {
+		if (p1Hand>=5){
+			checkState();
+		}
+		else if(p1Hand==4){
+			document.getElementById('p1DealtPile').lastChild.style.visibility='hidden';
+			generateP2Cards();
+		}
 	}
-	else if(p1Hand==4){
-		document.getElementById('p1DealtPile').lastChild.style.visibility='hidden';
-		generateP2Cards();
-	}
-}
-function generateP2Cards() {
-
+	
+	function generateP2Cards() {
 		// create and deal card objects to player 2
 		i = randomCard();
 		var xP2C1 = p2DealtRow.insertCell(-1);
 		var imgP2C1 = document.createElement('img');
-		imgP2C1.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+		imgP2C1.src="https://www.notdevin.com/f/sj.png";
 		xP2C1.appendChild(imgP2C1);
 		removeCard(i);
-
+	
 		i = randomCard();
 		var xP2C2 = p2DealtRow.insertCell(-1);
 		var imgP2C2 = document.createElement('img');
-		imgP2C2.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+		imgP2C2.src="https://www.notdevin.com/f/cj.png";
 		xP2C2.appendChild(imgP2C2);
 		removeCard(i);
-
+		
 		i = randomCard();
 		var xP2C3 = p2DealtRow.insertCell(-1);
 		var imgP2C3 = document.createElement('img');
-		imgP2C3.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+		imgP2C3.src="https://www.notdevin.com/f/c6.png";
 		xP2C3.appendChild(imgP2C3);
 		removeCard(i);
-
+		
 		i = randomCard();
 		var xP2C4 = p2DealtRow.insertCell(-1);
 		var imgP2C4 = document.createElement('img');
-		imgP2C4.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+		imgP2C4.src="https://www.notdevin.com/f/c5.png";
 		xP2C4.appendChild(imgP2C4);
 		removeCard(i);
-
+		
 		i = randomCard();
 		var xP2C5 = p2DealtRow.insertCell(-1);
 		var imgP2C5 = document.createElement('img');
-		imgP2C5.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+		imgP2C5.src="https://www.notdevin.com/f/d5.png";
 		xP2C5.appendChild(imgP2C5);
 		removeCard(i);
-
+		
 		i = randomCard();
 		var xP2C6 = p2DealtRow.insertCell(-1);
 		var imgP2C6 = document.createElement('img');
-		imgP2C6.src="https://www.notdevin.com/f/"+cardsInDeck[i]+".png";
+		imgP2C6.src="https://www.notdevin.com/f/sa.png";
 		xP2C6.appendChild(imgP2C6);
 		removeCard(i);
-
-		  // Player 2's card objects onclick methods
+	
+	// Player 2's card objects onclick methods
 			$(imgP2C1).click(function() {
 				p2Hand -= 1;
+				
 				if (p2Hand >= 4){
 					$(imgP2C1).detach().appendTo('#discardPile');
 					checkState2();
@@ -375,7 +354,6 @@ function generateP2Cards() {
 					playState8();
 				}
 			});
-
 			$(imgP2C2).click(function() {
 				p2Hand -= 1;
 				if (p2Hand >= 4){
@@ -399,7 +377,6 @@ function generateP2Cards() {
 					playState8();
 				}
 			});
-
 			$(imgP2C3).click(function() {
 				p2Hand -= 1;
 				if (p2Hand >= 4){
@@ -423,7 +400,6 @@ function generateP2Cards() {
 					playState8();
 				}
 			});
-
 			$(imgP2C4).click(function() {
 				p2Hand -= 1;
 				if (p2Hand >= 4){
@@ -447,7 +423,6 @@ function generateP2Cards() {
 					playState8();
 				}
 			});
-
 			$(imgP2C5).click(function() {
 				p2Hand -= 1;
 				if (p2Hand >= 4){
@@ -471,7 +446,6 @@ function generateP2Cards() {
 					playState8();
 				}
 			});
-
 			$(imgP2C6).click(function() {
 				p2Hand -= 1;
 				if (p2Hand >= 4){
@@ -497,7 +471,7 @@ function generateP2Cards() {
 			});
 	alert("\n\nPlayer Two: please discard two cards.");
 	checkState2();
-}
+	}
 	function checkState2() {
 		if (p2Hand>=5){
 			checkState2();
@@ -509,109 +483,116 @@ function generateP2Cards() {
 			playState1();
 		}
 	}
-		function playState1() {
-			if (p1Hand >=4){
-				playState1();
-			}
-			else if(p1Hand == 3){
-				alert("\n\nPlayer Two: Choose a Card to Play!");
-				document.getElementById('p1DealtPile').lastChild.style.visibility='hidden';
-				document.getElementById('p2DealtPile').lastChild.style.visibility='visible';
-				playState2();
-			}
+	function playState1() {
+		if (p1Hand >=4){
+			playState1();
 		}
-			function playState2() {
-				if (p2Hand >=4){
-					playState2();
-				}
-				else if (p2Hand == 3) {
-					alert("\n\nPlayer One: Choose a Card to Play!");
-					document.getElementById('p1DealtPile').lastChild.style.visibility='visible';
-					document.getElementById('p2DealtPile').lastChild.style.visibility='hidden';
-					playState3();
-				}
-}
-				function playState3() {
-					if (p1Hand >=3){
-						playState3();
-					}
-					else if(p1Hand == 2){
-						alert("\n\nPlayer Two: Choose a Card to Play!");
-						document.getElementById('p1DealtPile').lastChild.style.visibility='hidden';
-						document.getElementById('p2DealtPile').lastChild.style.visibility='visible';
-						playState4();
-				}
-}
-				function playState4() {
-					if (p2Hand >=3){
-						playState4();
-					}
-					else if(p2Hand == 2){
-						alert("\n\nPlayer One: Choose a Card to Play!");
-						document.getElementById('p1DealtPile').lastChild.style.visibility='visible';
-						document.getElementById('p2DealtPile').lastChild.style.visibility='hidden';
-						playState5();
-				}
-}
-				function playState5() {
-					if (p1Hand >=2){
-						playState5();
-					}
-					else if(p1Hand == 1){
-						alert("\n\nPlayer Two: Choose a Card to Play!");
-						document.getElementById('p1DealtPile').lastChild.style.visibility='hidden';
-						document.getElementById('p2DealtPile').lastChild.style.visibility='visible';
-						playState6();
-					}
-}
-					function playState6() {
-						if (p2Hand >=2){
-							playState6();
-						}
-						else if(p2Hand == 1){
-							alert("\n\nPlayer One: Play your Last Card!");
-							document.getElementById('p1DealtPile').lastChild.style.visibility='visible';
-							document.getElementById('p2DealtPile').lastChild.style.visibility='hidden';
-							playState7();
-						}
-}
-						function playState7() {
-							if (p1Hand > 0 ){
-								playState7();
-							}
-							else if(p1Hand == 0){
-								alert("\n\nPlayer Two: Play your Last Card!");
-								document.getElementById('p1DealtPile').lastChild.style.visibility='hidden';
-								document.getElementById('p2DealtPile').lastChild.style.visibility='visible';
-								playState8();
-							}
-}
-							function playState8() {
-								if (p2Hand > 0 ){
-									playState8();
-								}
-								else if(p2Hand == 0){
-									document.write('\nPlayer 1 WINS!!!, because i said so\n');
-								}
-							}
-						} // end generare cards
-
+		else if(p1Hand == 3){
+			alert("\n\nPlayer Two: Choose a Card to Play!");
+			document.getElementById('p1DealtPile').lastChild.style.visibility='hidden';
+			document.getElementById('p2DealtPile').lastChild.style.visibility='visible';
+			playState2();
+			}
+	}
+	function playState2() {
+		if (p2Hand >=4){
+			playState2();
+		}
+		else if (p2Hand == 3) {
+			alert("\n\nPlayer One: Choose a Card to Play!");
+			document.getElementById('p1DealtPile').lastChild.style.visibility='visible';
+			document.getElementById('p2DealtPile').lastChild.style.visibility='hidden';
+			playState3();
+		}
+	}
+	function playState3() {
+		if (p1Hand >=3){
+			playState3();
+		}
+		else if(p1Hand == 2){
+			alert("\n\nPlayer Two: Choose a Card to Play!");
+			document.getElementById('p1DealtPile').lastChild.style.visibility='hidden';
+			document.getElementById('p2DealtPile').lastChild.style.visibility='visible';
+			playState4();
+		}
+	}
+	
+	function playState4() {
+		if (p2Hand >=3){
+			playState4();
+		}
+		else if(p2Hand == 2){
+			alert("\n\nPlayer One: Choose a Card to Play!");
+			document.getElementById('p1DealtPile').lastChild.style.visibility='visible';
+			document.getElementById('p2DealtPile').lastChild.style.visibility='hidden';
+			playState5();
+		}
+	}
+	
+	function playState5() {
+		if (p1Hand >=2){
+			playState5();
+		}
+		else if(p1Hand == 1){
+		alert("\n\nPlayer Two: Choose a Card to Play!");
+		document.getElementById('p1DealtPile').lastChild.style.visibility='hidden';
+		document.getElementById('p2DealtPile').lastChild.style.visibility='visible';
+		playState6();
+		}
+	}
+	
+	function playState6() {
+		if (p2Hand >=2){
+			playState6();
+		}
+		else if(p2Hand == 1){
+			alert("\n\nPlayer One: Play your Last Card!");
+			document.getElementById('p1DealtPile').lastChild.style.visibility='visible';
+			document.getElementById('p2DealtPile').lastChild.style.visibility='hidden';
+			playState7();
+		}
+	}
+	
+	function playState7() {
+		if (p1Hand > 0 ){
+			playState7();
+		}
+		else if(p1Hand == 0){
+			alert("\n\nPlayer Two: Play your Last Card!");
+			document.getElementById('p1DealtPile').lastChild.style.visibility='hidden';
+			document.getElementById('p2DealtPile').lastChild.style.visibility='visible';
+			playState8();
+		}
+	}
+	
+	function playState8() {
+		if (p2Hand > 0 ){
+			playState8();
+		}
+		else if(p2Hand == 0){
+		document.write("<img src='p1Wins.png'><table id='p2DealtPile'style='position:absolute; top:608px; left:734px;'>");
+		}
+	}
+} // end generare cards
 </script>
 </head>
 <body>
- <button id="startbutton" type="button" onclick="startPlaying()">Start Playing</button>
+ 
 
-
-<table id="p1DealtPile"><th/>
+ <table id="playPile" style="position:absolute; top:34px; left:394px;"><th/>
 </table>
 
-<table id="p2DealtPile"><th/>
+<button id="startbutton" type="button" style="width:170px; height:144px; position:absolute; top:110px; left:660px;" onclick="startPlaying()"><h1>Deal Cards</h1></button>
+
+<table id="p1DealtPile" style="position:absolute; top:608px; left:0px;"><th/>
 </table>
 
-<table id="playPile" width="1100" height="175">
+<table id="p2DealtPile"style="position:absolute; top:608px; left:734px;"><th/>
 </table>
 
- <table id="discardPile" width="1100" height="175">
+
+
+ <table id="discardPile"><th/>
  </table>
 
  <br>
