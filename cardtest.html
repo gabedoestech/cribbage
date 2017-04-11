@@ -3,7 +3,7 @@
 <head>
 	<style>
 	body {
-    background-image: url('http://www.notdevin.com/f/gameBoard.png');
+    background-image: url('https://www.notdevin.com/f/gameBoard.png');
     background-repeat: no-repeat;
     background-position: left top;
     background-attachment: fixed;
@@ -70,18 +70,18 @@ for (i = 22; i <= 24; i++ ) {
 function startPlaying() {
 	if (numberOfCardsInDeck == 40) return false;
 	document.getElementById('startbutton').style.visibility = 'hidden';
-	
+
 	function randomCard() {
 		return Math.floor(Math.random() * numberOfCardsInDeck);
 	}
-	
+
 	function removeCard(c) {
 		for (j=c; j <= numberOfCardsInDeck-2; j++) {
 	 		cardsInDeck[j] = cardsInDeck[j+1];
 	  }
 	  numberOfCardsInDeck--;
 	 }
-	
+
 	// make pointers to location of card piles
 	var secondScoreRow = document.getElementById('secondScore').rows[0];
 	var firstScoreRow = document.getElementById('firstScore').rows[0];
@@ -94,7 +94,14 @@ function startPlaying() {
 	var p1pointsRow = document.getElementById('p1Points').rows[0];
 	var p1pointsRow2= document.getElementById('p1Points2').rows[0];
 	var p1pointsRow3= document.getElementById('p1Points3').rows[0];
-	
+	var playerOneTurnRow = document.getElementById('playerOneTurn').rows[0];
+	var playerTwoTurnRow = document.getElementById('playerTwoTurn').rows[0];
+	var endGameRow = document.getElementById('endGame').rows[0];
+	var endTurnRow = document.getElementById('endTurn').rows[0];
+
+
+	document.getElementById('playerOneTurn').style.visibility='hidden';
+	document.getElementById('playerTwoTurn').style.visibility='hidden';
 	document.getElementById('thirdScore').style.visibility='hidden';
 	document.getElementById('secondScore').style.visibility='hidden';
 	document.getElementById('discardPile').style.visibility='hidden';
@@ -103,22 +110,42 @@ function startPlaying() {
 	document.getElementById('p1Points').style.visibility='hidden';
 	document.getElementById('p1Points2').style.visibility='hidden';
 	document.getElementById('p1Points3').style.visibility='hidden';
-	
+
+	var xplayerOneTurn = playerOneTurnRow.insertCell(-1);
+	var imgplayerOneTurn = document.createElement('img');
+	imgplayerOneTurn.src="https://www.notdevin.com/f/playerOneTurn.png";
+	xplayerOneTurn.appendChild(imgplayerOneTurn);
+
+	var xplayerTwoTurn = playerTwoTurnRow.insertCell(-1);
+	var imgplayerTwoTurn = document.createElement('img');
+	imgplayerTwoTurn.src="https://www.notdevin.com/f/playerTwoTurn.png";
+	xplayerTwoTurn.appendChild(imgplayerTwoTurn);
+
+	var xendGame = endGameRow.insertCell(-1);
+	var imgendGame = document.createElement('img');
+	imgendGame.src="https://www.notdevin.com/f/endGame.png";
+	xendGame.appendChild(imgendGame);
+
+	var xendTurn = endTurnRow.insertCell(-1);
+	var imgendTurn = document.createElement('img');
+	imgendTurn.src="https://www.notdevin.com/f/endTurn.png";
+	xendTurn.appendChild(imgendTurn);
+
 	var xp1points3 = p1pointsRow3.insertCell(-1);
 	var imgp1points3 = document.createElement('img');
 	imgp1points3.src="https://www.notdevin.com/f/5points.png";
 	xp1points3.appendChild(imgp1points3);
-	
+
 	var xp1points2 = p1pointsRow2.insertCell(-1);
 	var imgp1points2 = document.createElement('img');
 	imgp1points2.src="https://www.notdevin.com/f/4points.png";
 	xp1points2.appendChild(imgp1points2);
-	
+
 	var xp1points = p1pointsRow.insertCell(-1);
 	var imgp1points = document.createElement('img');
 	imgp1points.src="https://www.notdevin.com/f/2points.png";
 	xp1points.appendChild(imgp1points);
-		
+
 	var xthirdscore = thirdScoreRow.insertCell(-1);
 	var imgthirdScore = document.createElement('img');
 	imgthirdScore.src="https://www.notdevin.com/f/first.png";
@@ -128,17 +155,17 @@ function startPlaying() {
 	var imgsecondScore = document.createElement('img');
 	imgsecondScore.src="https://www.notdevin.com/f/first.png";
 	xsecondscore.appendChild(imgsecondScore);
-	
+
 	var xfirstscore = firstScoreRow.insertCell(-1);
 	var imgfirstScore = document.createElement('img');
 	imgfirstScore.src="https://www.notdevin.com/f/first.png";
 	xfirstscore.appendChild(imgfirstScore);
-	
+
 	var ximgCrib=cribRow.insertCell(-1);
 	var imgCrib = document.createElement('img');
 	imgCrib.src="https://www.notdevin.com/f/s10.png";
 	ximgCrib.appendChild(imgCrib);
-	
+
 	// create and deal card objects to player 1
 	i = randomCard();
 	var xP1C1=p1DealtRow.insertCell(-1);
@@ -146,42 +173,42 @@ function startPlaying() {
 	imgP1C1.src="https://www.notdevin.com/f/sj.png";
 	xP1C1.appendChild(imgP1C1);
 	removeCard(i);
-	
+
 	i = randomCard();
 	var xP1C2=p1DealtRow.insertCell(-1);
 	var imgP1C2 = document.createElement('img');
 	imgP1C2.src="https://www.notdevin.com/f/cj.png";
 	xP1C2.appendChild(imgP1C2);
 	removeCard(i);
-	
+
 	i = randomCard();
 	var xP1C3=p1DealtRow.insertCell(-1);
 	var imgP1C3 = document.createElement('img');
 	imgP1C3.src="https://www.notdevin.com/f/c6.png";
 	xP1C3.appendChild(imgP1C3);
 	removeCard(i);
-	
+
 	i = randomCard();
 	var xP1C4 = p1DealtRow.insertCell(-1);
 	var imgP1C4 = document.createElement('img');
 	imgP1C4.src="https://www.notdevin.com/f/c5.png";
 	xP1C4.appendChild(imgP1C4);
 	removeCard(i);
-	
+
 	i = randomCard();
 	var xP1C5 = p1DealtRow.insertCell(-1);
 	var imgP1C5 = document.createElement('img');
 	imgP1C5.src="https://www.notdevin.com/f/d5.png";
 	xP1C5.appendChild(imgP1C5);
 	removeCard(i);
-	
+
 	i = randomCard();
 	var xP1C6 = p1DealtRow.insertCell(-1);
 	var imgP1C6 = document.createElement('img');
 	imgP1C6.src="https://www.notdevin.com/f/sa.png";
 	xP1C6.appendChild(imgP1C6);
 	removeCard(i);
-	
+
 	// Player 1's card objects onclick methods
 	$(imgP1C1).click(function() {
 		p1Hand -=1;
@@ -321,10 +348,10 @@ function startPlaying() {
 			playState7();
 		}
 	});
-	
-	alert("\n\nPlayer One: please discard two cards.");
+	document.getElementById('playerOneTurn').lastChild.style.visibility='visible';
+	alert("\n\nPlayer One: Click on the OK button to show your cards, and then please select two cards to discard.\n\n Note: Left click on a card to discard.\n");
 	checkState();
-	
+
 	function checkState() {
 		if (p1Hand>=5){
 			checkState();
@@ -334,7 +361,7 @@ function startPlaying() {
 			generateP2Cards();
 		}
 	}
-	
+
 	function generateP2Cards() {
 		// create and deal card objects to player 2
 		i = randomCard();
@@ -343,46 +370,46 @@ function startPlaying() {
 		imgP2C1.src="https://www.notdevin.com/f/c10.png";
 		xP2C1.appendChild(imgP2C1);
 		removeCard(i);
-	
+
 		i = randomCard();
 		var xP2C2 = p2DealtRow.insertCell(-1);
 		var imgP2C2 = document.createElement('img');
 		imgP2C2.src="https://www.notdevin.com/f/h10.png";
 		xP2C2.appendChild(imgP2C2);
 		removeCard(i);
-		
+
 		i = randomCard();
 		var xP2C3 = p2DealtRow.insertCell(-1);
 		var imgP2C3 = document.createElement('img');
 		imgP2C3.src="https://www.notdevin.com/f/h9.png";
 		xP2C3.appendChild(imgP2C3);
 		removeCard(i);
-		
+
 		i = randomCard();
 		var xP2C4 = p2DealtRow.insertCell(-1);
 		var imgP2C4 = document.createElement('img');
 		imgP2C4.src="https://www.notdevin.com/f/s6.png";
 		xP2C4.appendChild(imgP2C4);
 		removeCard(i);
-		
+
 		i = randomCard();
 		var xP2C5 = p2DealtRow.insertCell(-1);
 		var imgP2C5 = document.createElement('img');
 		imgP2C5.src="https://www.notdevin.com/f/h4.png";
 		xP2C5.appendChild(imgP2C5);
 		removeCard(i);
-		
+
 		i = randomCard();
 		var xP2C6 = p2DealtRow.insertCell(-1);
 		var imgP2C6 = document.createElement('img');
 		imgP2C6.src="https://www.notdevin.com/f/ha.png";
 		xP2C6.appendChild(imgP2C6);
 		removeCard(i);
-	
+
 	// Player 2's card objects onclick methods
 			$(imgP2C1).click(function() {
 				p2Hand -= 1;
-				
+
 				if (p2Hand >= 4){
 					$(imgP2C1).detach().appendTo('#discardPile');
 					checkState2();
@@ -519,7 +546,9 @@ function startPlaying() {
 					playState8();
 				}
 			});
-	alert("\n\nPlayer Two: please discard two cards.");
+	alert("\n\nPlayer One: Click on the OK button to finish your turn.\n\nPlayer Two: Please select two cards to discard.\n\nNote: Left click on a card to discard.\n");
+	document.getElementById('playerOneTurn').lastChild.style.visibility='hidden';
+	document.getElementById('playerTwoTurn').lastChild.style.visibility='visible';
 	checkState2();
 	}
 	function checkState2() {
@@ -527,10 +556,12 @@ function startPlaying() {
 			checkState2();
 		}
 		else if(p2Hand==4) {
-			alert("\n\nPlayer One: Choose a Card to Play!");
+			alert("\n\nPlayer Two: Click on the OK button to finish discarding.\n\nPlayer One: Get ready to play a card\n\nNote: Left click on a card to place it on the playing field.\n");
 			document.getElementById('cribPile').lastChild.style.visibility='visible';
 			document.getElementById('p1DealtPile').lastChild.style.visibility='visible';
 			document.getElementById('p2DealtPile').lastChild.style.visibility='hidden';
+			document.getElementById('playerOneTurn').lastChild.style.visibility='visible';
+			document.getElementById('playerTwoTurn').lastChild.style.visibility='hidden';
 			playState1();
 		}
 	}
@@ -539,9 +570,11 @@ function startPlaying() {
 			playState1();
 		}
 		else if(p1Hand == 3){
-			alert("\n\nPlayer Two: Choose a Card to Play!");
+			alert("\n\nPlayer One: Click on the OK button to finish your turn.\n\nPlayer Two: Get ready to play a card\n\nNote: Left click on a card to place it on the playing field.\n");
 			document.getElementById('p1DealtPile').lastChild.style.visibility='hidden';
 			document.getElementById('p2DealtPile').lastChild.style.visibility='visible';
+			document.getElementById('playerOneTurn').lastChild.style.visibility='hidden';
+			document.getElementById('playerTwoTurn').lastChild.style.visibility='visible';
 			playState2();
 			}
 	}
@@ -550,9 +583,11 @@ function startPlaying() {
 			playState2();
 		}
 		else if (p2Hand == 3) {
-			alert("\n\nPlayer One: Choose a Card to Play!");
+			alert("\n\nPlayer Two: Click on the OK button to finish your turn.\n\nPlayer One: Get ready to play a card\n\nNote: Left click on a card to place it on the playing field.\n");
 			document.getElementById('p1DealtPile').lastChild.style.visibility='visible';
 			document.getElementById('p2DealtPile').lastChild.style.visibility='hidden';
+			document.getElementById('playerOneTurn').lastChild.style.visibility='visible';
+			document.getElementById('playerTwoTurn').lastChild.style.visibility='hidden';
 			playState3();
 		}
 	}
@@ -561,69 +596,76 @@ function startPlaying() {
 			playState3();
 		}
 		else if(p1Hand == 2){
-			alert("\n\nPlayer Two: Choose a Card to Play!");
+			alert("\n\nPlayer One: Click on the OK button to finish your turn.\n\nPlayer Two: Get ready to play a card\n\nNote: Left click on a card to place it on the playing field.\n");
 			document.getElementById('p1DealtPile').lastChild.style.visibility='hidden';
 			document.getElementById('p2DealtPile').lastChild.style.visibility='visible';
+			document.getElementById('playerOneTurn').lastChild.style.visibility='hidden';
+			document.getElementById('playerTwoTurn').lastChild.style.visibility='visible';
 			playState4();
 		}
 	}
-	
+
 	function playState4() {
 		if (p2Hand >=3){
 			playState4();
 		}
 		else if(p2Hand == 2){
-			alert("\n\nPlayer One: Choose a Card to Play!");
+			alert("\n\nPlayer Two: Click on the OK button to finish your turn.\n\nPlayer One: Get ready to play a card\n\nNote: Left click on a card to place it on the playing field.\n");
 			document.getElementById('firstScore').lastChild.style.visibility='visible';
 			document.getElementById('p1Points').lastChild.style.visibility='visible';
 			document.getElementById('p1DealtPile').lastChild.style.visibility='visible';
 			document.getElementById('p2DealtPile').lastChild.style.visibility='hidden';
+			document.getElementById('playerOneTurn').lastChild.style.visibility='visible';
+			document.getElementById('playerTwoTurn').lastChild.style.visibility='hidden';
 			playState5();
 		}
 	}
-	
+
 	function playState5() {
 		if (p1Hand >=2){
 			playState5();
 		}
 		else if(p1Hand == 1){
-		alert("\n\nPlayer Two: Choose a Card to Play!");
+		alert("\n\nPlayer One: Click on the OK button to finish your turn.\n\nPlayer Two: Get ready to play a card\n\nNote: Left click on a card to place it on the playing field.\n");
 		document.getElementById('p1DealtPile').lastChild.style.visibility='hidden';
 		document.getElementById('p2DealtPile').lastChild.style.visibility='visible';
+		document.getElementById('playerOneTurn').lastChild.style.visibility='hidden';
+		document.getElementById('playerTwoTurn').lastChild.style.visibility='visible';
 		playState6();
 		}
 	}
-	
+
 	function playState6() {
 		if (p2Hand >=2){
 			playState6();
 		}
 		else if(p2Hand == 1){
-			alert("\n\nPlayer One: Play your Last Card!");
+			alert("\n\nPlayer Two: Click on the OK button to finish your turn.\n\nPlayer One: Get ready to play a card\n\nNote: Left click on a card to place it on the playing field.\n");
 			document.getElementById('p1DealtPile').lastChild.style.visibility='visible';
 			document.getElementById('p2DealtPile').lastChild.style.visibility='hidden';
 			document.getElementById('secondScore').lastChild.style.visibility='visible';
 			document.getElementById('p1Points').lastChild.style.visibility='hidden';
 			document.getElementById('p1Points2').lastChild.style.visibility='visible';
-			
-			
+			document.getElementById('playerOneTurn').lastChild.style.visibility='visible';
+			document.getElementById('playerTwoTurn').lastChild.style.visibility='hidden';
 			playState7();
 		}
 	}
-	
+
 	function playState7() {
 		if (p1Hand > 0 ){
 			playState7();
 		}
 		else if(p1Hand == 0){
-			alert("\n\nPlayer Two: Play your Last Card!");
+			alert("\n\nPlayer One: Click on the OK button to finish the game.\n");
 			document.getElementById('p1DealtPile').lastChild.style.visibility='hidden';
 			document.getElementById('p2DealtPile').lastChild.style.visibility='visible';
-			
+			document.getElementById('playerOneTurn').lastChild.style.visibility='hidden';
+			document.getElementById('playerTwoTurn').lastChild.style.visibility='visible';
 			playState8();
 		}
 	}
-	
+
 	function playState8() {
 		if (p2Hand > 0 ){
 			playState8();
@@ -633,10 +675,12 @@ function startPlaying() {
 		document.getElementById('p1Points3').lastChild.style.visibility='visible';
 		document.getElementById('thirdScore').lastChild.style.visibility='visible';
 		document.getElementById('firstScore').lastChild.style.visibility='hidden';
+		document.getElementById('playerOneTurn').lastChild.style.visibility='visible';
+		document.getElementById('playerTwoTurn').lastChild.style.visibility='hidden';
 		endPage();
 		}
 	}
-	
+
 	function endPage() {
 		//TODO
 	}
@@ -644,15 +688,20 @@ function startPlaying() {
 </script>
 </head>
 <body>
-<table id="playPile" style="position:absolute; top:34px; left:300px;"><th/></table> 
+<table id="playPile" style="position:absolute; top:34px; left:300px;"><th/></table>
 <table id="cribPile" style="position:absolute; top:47px; left:74px;"><th/></table>
 <button id="startbutton" type="button" style="width:170px; height:144px; position:absolute; top:110px; left:660px;" onclick="startPlaying()"><h1>Deal Cards</h1></button>
+<table id="playerOneTurn" style="position:absolute; top:575px; left: 570px;"><th/></table>
+<table id="playerTwoTurn" style="position:absolute; top:575px; left: 570px;"><th/></table>
+<table id="endGame" style="position:absolute; top:575px; left: 830px;"><th/></table>
+<table id="endTurn" style="position:absolute; top:575px; left: 700px;"><th/></table>
+<table id="playerTwoTurn" style="position:absolute; top:300px; left: 0px;"><th/></table>
 <table id="thirdScore" style="position:absolute; top:500px; left: 1100px;"><th/></table>
 <table id="secondScore" style="position:absolute; top:500px; left:1125px;"><th/></table>
 <table id="firstScore" style="position:absolute; top:500px; left:1170px;"><th/></table>
-<table id="p1Points" style="position:absolute; top:712px; left:1337px;"><th/></table>
-<table id="p1Points2" style="position:absolute; top:712px; left:1337px;"><th/></table>
-<table id="p1Points3" style="position:absolute; top:710px; left:1337px;"><th/></table>
+<table id="p1Points" style="position:absolute; top:383px; left:1455px;"><th/></table>
+<table id="p1Points2" style="position:absolute; top:383px; left:1455px;"><th/></table>
+<table id="p1Points3" style="position:absolute; top:383px; left:1455px;"><th/></table>
 <table id="p1DealtPile" style="position:absolute; top:608px; left:0px;"><th/></table>
 <table id="p2DealtPile"style="position:absolute; top:608px; left:734px;"><th/></table>
 <table id="discardPile"><th/>
