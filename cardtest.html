@@ -96,9 +96,6 @@ function startPlaying() {
 	var p1pointsRow3= document.getElementById('p1Points3').rows[0];
 	var playerOneTurnRow = document.getElementById('playerOneTurn').rows[0];
 	var playerTwoTurnRow = document.getElementById('playerTwoTurn').rows[0];
-	var endGameRow = document.getElementById('endGame').rows[0];
-	var endTurnRow = document.getElementById('endTurn').rows[0];
-
 
 	document.getElementById('playerOneTurn').style.visibility='hidden';
 	document.getElementById('playerTwoTurn').style.visibility='hidden';
@@ -120,16 +117,6 @@ function startPlaying() {
 	var imgplayerTwoTurn = document.createElement('img');
 	imgplayerTwoTurn.src="https://www.notdevin.com/f/playerTwoTurn.png";
 	xplayerTwoTurn.appendChild(imgplayerTwoTurn);
-
-	var xendGame = endGameRow.insertCell(-1);
-	var imgendGame = document.createElement('img');
-	imgendGame.src="https://www.notdevin.com/f/endGame.png";
-	xendGame.appendChild(imgendGame);
-
-	var xendTurn = endTurnRow.insertCell(-1);
-	var imgendTurn = document.createElement('img');
-	imgendTurn.src="https://www.notdevin.com/f/endTurn.png";
-	xendTurn.appendChild(imgendTurn);
 
 	var xp1points3 = p1pointsRow3.insertCell(-1);
 	var imgp1points3 = document.createElement('img');
@@ -691,17 +678,14 @@ function startPlaying() {
 <table id="playPile" style="position:absolute; top:34px; left:300px;"><th/></table>
 <table id="cribPile" style="position:absolute; top:47px; left:74px;"><th/></table>
 <img src="https://www.notdevin.com/f/dealCards.png" id="startbutton" style="position:absolute; top:110px; left:550px;" onclick="startPlaying()"/>
-<table id="playerOneTurn" style="position:absolute; top:575px; left: 570px;"><th/></table>
-<table id="playerTwoTurn" style="position:absolute; top:575px; left: 570px;"><th/></table>
-<table id="endGame" style="position:absolute; top:575px; left: 830px;"><th/></table>
-<table id="endTurn" style="position:absolute; top:575px; left: 700px;"><th/></table>
-<table id="playerTwoTurn" style="position:absolute; top:300px; left: 0px;"><th/></table>
+<table id="playerOneTurn" style="position:absolute; top:572px; left: 270px;"><th/></table>
+<table id="playerTwoTurn" style="position:absolute; top:572px; left: 270px;"><th/></table>
 <table id="thirdScore" style="position:absolute; top:500px; left: 1100px;"><th/></table>
 <table id="secondScore" style="position:absolute; top:500px; left:1125px;"><th/></table>
 <table id="firstScore" style="position:absolute; top:500px; left:1170px;"><th/></table>
-<table id="p1Points" style="position:absolute; top:383px; left:1455px;"><th/></table>
-<table id="p1Points2" style="position:absolute; top:383px; left:1455px;"><th/></table>
-<table id="p1Points3" style="position:absolute; top:383px; left:1455px;"><th/></table>
+<table id="p1Points" style="position:absolute; top:574px; left:960px;"><th/></table>
+<table id="p1Points2" style="position:absolute; top:574px; left:960px;"><th/></table>
+<table id="p1Points3" style="position:absolute; top:574px; left:960px;"><th/></table>
 <table id="p1DealtPile" style="position:absolute; top:608px; left:0px;"><th/></table>
 <table id="p2DealtPile"style="position:absolute; top:608px; left:734px;"><th/></table>
 <table id="discardPile"><th/>
